@@ -29,134 +29,132 @@ class _DashNoticeScreenState extends State<DashNoticeScreen> {
       backgroundColor: colorWhite,
 
 
-      body: Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width*0.011),
-              child: Container(
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width*0.011),
+            child: Container(
 
-                width: width*0.665,
-                decoration: BoxDecoration(
-                  color: colorBox,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+              width: width*0.665,
+              decoration: BoxDecoration(
+                color: colorBox,
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
 
-                      Container(
-                        width: width,
-                        padding: EdgeInsets.all(width *0.005),
-                        decoration: BoxDecoration(
-                          color: colorHeaderCon,
-                          borderRadius: BorderRadius.circular(width*0.022),
-                        ),
-                        child:Row(
-                          children: [
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
-                            SizedBox(width: width*0.27,),
-                            WantText(
-                                text: "Notice",
-                                fontSize: width * 0.0166,
-                                fontWeight: FontWeight.w700,
-                                textColor: colorBlack),
-                          ],
-                        ) ,
+                    Container(
+                      width: width,
+                      padding: EdgeInsets.all(width *0.005),
+                      decoration: BoxDecoration(
+                        color: colorHeaderCon,
+                        borderRadius: BorderRadius.circular(width*0.022),
                       ),
-
-                      SizedBox(height: height * 0.03),
-
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      child:Row(
                         children: [
                           GestureDetector(
-                            onTap: () => setState(
-                                  () => _noticeToDisplay = 'school',
-                            ),
-                            child: Container(
-                              width: width * 0.320,
-                              height: height * 0.039,
-                              decoration: BoxDecoration(
-                                color: _noticeToDisplay == 'school'
-                                    ? colorMainTheme
-                                    : colorWhite,
-                                borderRadius:
-                                BorderRadius.circular(width * 2.56),
-                              ),
-                              child: Center(
-                                child: WantText(
-                                  text: 'School Notice',
-                                  fontSize: width * 0.011,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'Poppins',
-                                  textColor: _noticeToDisplay == 'school'
-                                      ? colorWhite
-                                      : colorBlack,
-                                ),
-                              ),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () => setState(
-                                  () => _noticeToDisplay = 'class',
-                            ),
-                            child: Container(
-                              width: width * 0.320,
-                              height: height * 0.039,
-                              decoration: BoxDecoration(
-                                color: _noticeToDisplay == 'class'
-                                    ? colorMainTheme
-                                    : colorWhite,
-                                borderRadius:
-                                BorderRadius.circular(width * 2.56),
-                              ),
-                              child: Center(
-                                child: WantText(
-                                  text: 'Class Notice',
-                                  fontSize: width * 0.011,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'Poppins',
-                                  textColor: _noticeToDisplay == 'class'
-                                      ? colorWhite
-                                      : colorBlack,
-                                ),
-                              ),
-                            ),
-                          ),
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
+                          SizedBox(width: width*0.27,),
+                          WantText(
+                              text: "Notice",
+                              fontSize: width * 0.0166,
+                              fontWeight: FontWeight.w700,
+                              textColor: colorBlack),
                         ],
-                      ),
+                      ) ,
+                    ),
 
-                      SizedBox(height: height * 0.02),
+                    SizedBox(height: height * 0.03),
 
 
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: _noticeToDisplay == "school"
-                              ? SchoolNotice()
-                              : ClassNotice(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        GestureDetector(
+                          onTap: () => setState(
+                                () => _noticeToDisplay = 'school',
+                          ),
+                          child: Container(
+                            width: width * 0.320,
+                            height: height * 0.039,
+                            decoration: BoxDecoration(
+                              color: _noticeToDisplay == 'school'
+                                  ? colorMainTheme
+                                  : colorWhite,
+                              borderRadius:
+                              BorderRadius.circular(width * 2.56),
+                            ),
+                            child: Center(
+                              child: WantText(
+                                text: 'School Notice',
+                                fontSize: width * 0.011,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins',
+                                textColor: _noticeToDisplay == 'school'
+                                    ? colorWhite
+                                    : colorBlack,
+                              ),
+                            ),
+                          ),
                         ),
+                        GestureDetector(
+                          onTap: () => setState(
+                                () => _noticeToDisplay = 'class',
+                          ),
+                          child: Container(
+                            width: width * 0.320,
+                            height: height * 0.039,
+                            decoration: BoxDecoration(
+                              color: _noticeToDisplay == 'class'
+                                  ? colorMainTheme
+                                  : colorWhite,
+                              borderRadius:
+                              BorderRadius.circular(width * 2.56),
+                            ),
+                            child: Center(
+                              child: WantText(
+                                text: 'Class Notice',
+                                fontSize: width * 0.011,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Poppins',
+                                textColor: _noticeToDisplay == 'class'
+                                    ? colorWhite
+                                    : colorBlack,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(height: height * 0.02),
+
+
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: _noticeToDisplay == "school"
+                            ? SchoolNotice()
+                            : ClassNotice(),
                       ),
-                      SizedBox(height: height * 0.36),
+                    ),
+                    SizedBox(height: height * 0.36),
 
 
 
-                    ],
-                  ),
+                  ],
                 ),
               ),
             ),
-            SizedBox(width: width*0.004,),
-            NoticWidget(),
-          ],
-        ),
+          ),
+          SizedBox(width: width*0.004,),
+          NoticWidget(),
+        ],
       ),
     );
   }

@@ -205,77 +205,75 @@ class _DashClassroomScreenState extends State<DashClassroomScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorWhite,
-      body: Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width*0.011),
-              child: Container(
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width*0.011),
+            child: Container(
 
-                width: width*0.665,
-                decoration: BoxDecoration(
-                  color: colorBox,
-                ),
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.009),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+              width: width*0.665,
+              decoration: BoxDecoration(
+                color: colorBox,
+              ),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.009),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
 
-                        Container(
-                          width: width,
-                          padding: EdgeInsets.all(width *0.005),
-                          decoration: BoxDecoration(
-                            color: colorHeaderCon,
-                            borderRadius: BorderRadius.circular(width*0.022),
-                          ),
-                          child:Row(
-                            children: [
-                              GestureDetector(
-                                  onTap: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
-                              SizedBox(width: width*0.27,),
-                              WantText(
-                                  text: "Cerate Class room",
-                                  fontSize: width * 0.0166,
-                                  fontWeight: FontWeight.w700,
-                                  textColor: colorBlack),
-                            ],
-                          ) ,
+                      Container(
+                        width: width,
+                        padding: EdgeInsets.all(width *0.005),
+                        decoration: BoxDecoration(
+                          color: colorHeaderCon,
+                          borderRadius: BorderRadius.circular(width*0.022),
                         ),
+                        child:Row(
+                          children: [
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
+                            SizedBox(width: width*0.27,),
+                            WantText(
+                                text: "Cerate Class room",
+                                fontSize: width * 0.0166,
+                                fontWeight: FontWeight.w700,
+                                textColor: colorBlack),
+                          ],
+                        ) ,
+                      ),
 
-                        SizedBox(height: height * 0.02),
+                      SizedBox(height: height * 0.02),
 
 
-                        ListView.builder(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          padding: EdgeInsets.all(0.0),
-                          itemCount: classes.length,
-                          itemBuilder: (context, index) {
-                            return ClassCard(classes[index]);
-                          },
-                        ),
-                        SizedBox(height: height*0.016),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        padding: EdgeInsets.all(0.0),
+                        itemCount: classes.length,
+                        itemBuilder: (context, index) {
+                          return ClassCard(classes[index]);
+                        },
+                      ),
+                      SizedBox(height: height*0.016),
 
-                        CustomButton(Width: width, onTap: _showCreateClassDialog, label: "Create class"),
+                      CustomButton(Width: width, onTap: _showCreateClassDialog, label: "Create class"),
 
-                        SizedBox(height: height*0.1),
+                      SizedBox(height: height*0.1),
 
-                      ],
-                    ),
+                    ],
                   ),
                 ),
               ),
             ),
-            SizedBox(width: width*0.004,),
-            ReminderWidget(),
-          ],
-        ),
+          ),
+          SizedBox(width: width*0.004,),
+          ReminderWidget(),
+        ],
       ),
     );
   }

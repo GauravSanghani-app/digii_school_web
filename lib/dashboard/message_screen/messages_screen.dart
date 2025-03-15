@@ -35,147 +35,145 @@ class _DashMessagesScreenState extends State<DashMessagesScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Expanded(
-        child: Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width*0.011),
-              child: Container(
-            
-                width: width*0.665,
-                decoration: BoxDecoration(
-                  color: colorBox,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: width*0.006,horizontal: height*0.016),
-                  child: Column(
-                    children: [
-                      // Header Section
-                      Container(
-                        width: width,
-                        padding: EdgeInsets.all(width *0.005),
-                        decoration: BoxDecoration(
-                          color: colorHeaderCon,
-                          borderRadius: BorderRadius.circular(width*0.0138),
-                        ),
-                        child:Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
-                            SizedBox(width: width*0.016),
-                            Row(
-                              children: [
-                                SizedBox(
-                                    width: width * 0.02,
-                                    child:Image.asset("assets/icons/personchat.png")
-                                ),
-                                SizedBox(width: width * 0.01),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    WantText(
-                                        fontFamily: "Roboto",
-                                        text: 'Class 12th B',
-                                        fontSize: width * 0.0166,
-                                        fontWeight: FontWeight.w700,
-                                        textColor: colorBlack),
-                                    WantText(
-                                        textOverflow: TextOverflow.ellipsis,
-                                        fontFamily: "Roboto",
-                                        text: 'Aryan, Shreya, Mohit, Rohit....',
-                                        fontSize: width * 0.0097,
-                                        fontWeight: FontWeight.w400,
-                                        textColor: colorBlack),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(width: width * 0.05),
-                          ],
-                        ),
+      body: Row(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width*0.011),
+            child: Container(
+
+              width: width*0.665,
+              decoration: BoxDecoration(
+                color: colorBox,
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: width*0.006,horizontal: height*0.016),
+                child: Column(
+                  children: [
+                    // Header Section
+                    Container(
+                      width: width,
+                      padding: EdgeInsets.all(width *0.005),
+                      decoration: BoxDecoration(
+                        color: colorHeaderCon,
+                        borderRadius: BorderRadius.circular(width*0.0138),
                       ),
-            
-                      SizedBox(height: height * 0.003),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: width * 0.006, vertical: height * 0.02),
-                          decoration: BoxDecoration(
-                            color: colorChat,
-                            borderRadius: BorderRadius.only(topLeft: Radius.circular(width*0.0083), topRight: Radius.circular(width*0.0083)),
-                          ),
-                          child: messages.isEmpty
-                              ? Center(child: Text("No messages yet"))
-                              : ListView.builder(
-                            itemCount: messages.length,
-                            itemBuilder: (context, index) {
-                              final message = messages[index];
-                              return MessageBubble(
-                                name: message['name']!,
-                                message: message['message']!,
-                                time: message['time']!,
-                                isTeacher: message['name'] == 'Class Teacher',
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-            
-                      // Input Field
-                      SizedBox(
-            
-                        height: width * 0.04,
-                        child: Container(
-                          padding: EdgeInsets.all(width * 0.005),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 5)],
-                          ),
-                          child: Row(
+                      child:Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
+                          SizedBox(width: width*0.016),
+                          Row(
                             children: [
-                              Icon(Icons.add, color: colorMainTheme, size: height * 0.035),
-                              SizedBox(width: width * 0.008),
-                              Expanded(
-                                child: TextField(
-                                  controller: messageController,
-                                  decoration: InputDecoration(
-                                    hintText: 'Type here...',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20),
-                                      borderSide: BorderSide.none,
-                                    ),
-                                    filled: true,
-                                    fillColor: Colors.grey[200],
-                                  ),
-                                ),
+                              SizedBox(
+                                  width: width * 0.02,
+                                  child:Image.asset("assets/icons/personchat.png")
                               ),
-                              IconButton(
-                                icon: Icon(Icons.send, color: Colors.blue, size: width * 0.02),
-                                onPressed: sendMessage,
-                              ),
-                              Image.asset(
-                                "assets/images/mic.png",
-                                fit: BoxFit.fill,height: width * 0.02,
-                                width: width * 0.02,
+                              SizedBox(width: width * 0.01),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  WantText(
+                                      fontFamily: "Roboto",
+                                      text: 'Class 12th B',
+                                      fontSize: width * 0.0166,
+                                      fontWeight: FontWeight.w700,
+                                      textColor: colorBlack),
+                                  WantText(
+                                      textOverflow: TextOverflow.ellipsis,
+                                      fontFamily: "Roboto",
+                                      text: 'Aryan, Shreya, Mohit, Rohit....',
+                                      fontSize: width * 0.0097,
+                                      fontWeight: FontWeight.w400,
+                                      textColor: colorBlack),
+                                ],
                               ),
                             ],
                           ),
+                          SizedBox(width: width * 0.05),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: height * 0.003),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: width * 0.006, vertical: height * 0.02),
+                        decoration: BoxDecoration(
+                          color: colorChat,
+                          borderRadius: BorderRadius.only(topLeft: Radius.circular(width*0.0083), topRight: Radius.circular(width*0.0083)),
+                        ),
+                        child: messages.isEmpty
+                            ? Center(child: Text("No messages yet"))
+                            : ListView.builder(
+                          itemCount: messages.length,
+                          itemBuilder: (context, index) {
+                            final message = messages[index];
+                            return MessageBubble(
+                              name: message['name']!,
+                              message: message['message']!,
+                              time: message['time']!,
+                              isTeacher: message['name'] == 'Class Teacher',
+                            );
+                          },
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+
+                    // Input Field
+                    SizedBox(
+
+                      height: width * 0.04,
+                      child: Container(
+                        padding: EdgeInsets.all(width * 0.005),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 5)],
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.add, color: colorMainTheme, size: height * 0.035),
+                            SizedBox(width: width * 0.008),
+                            Expanded(
+                              child: TextField(
+                                controller: messageController,
+                                decoration: InputDecoration(
+                                  hintText: 'Type here...',
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                    borderSide: BorderSide.none,
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.grey[200],
+                                ),
+                              ),
+                            ),
+                            IconButton(
+                              icon: Icon(Icons.send, color: Colors.blue, size: width * 0.02),
+                              onPressed: sendMessage,
+                            ),
+                            Image.asset(
+                              "assets/images/mic.png",
+                              fit: BoxFit.fill,height: width * 0.02,
+                              width: width * 0.02,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
+          ),
 
 
-            ReminderWidget(),
-          ],
-        ),
+          ReminderWidget(),
+        ],
       ),
     );
   }

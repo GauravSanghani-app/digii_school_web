@@ -24,268 +24,266 @@ class _AlgebraAssignmentScreenState extends State<AlgebraAssignmentScreen> {
 
     return Scaffold(
       backgroundColor: colorWhite,
-      body: Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width*0.011),
-              child:
-              Flexible(
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    return Container(
-                      width: width*0.665,
-                      decoration: BoxDecoration(
-                        color: colorBox,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.009),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-
-                            Container(
-                              width: width,
-                              padding: EdgeInsets.all(width *0.005),
-                              decoration: BoxDecoration(
-                                color: colorHeaderCon,
-                                borderRadius: BorderRadius.circular(width*0.022),
-                              ),
-                              child:Row(
-                                children: [
-                                  GestureDetector(
-                                      onTap: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
-                                  SizedBox(width: width*0.27,),
-                                  WantText(
-                                      text: "Assignment ",
-                                      fontSize: width * 0.0166,
-                                      fontWeight: FontWeight.w700,
-                                      textColor: colorBlack),
-                                ],
-                              ) ,
-                            ),
-
-
-                            SizedBox(height: height * 0.016),
-                            Row(
-
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                GestureDetector(
-                                  onTap: () => setState(
-                                        () => _assignmentToDisplay = 'instructions',
-                                  ),
-                                  child: Container(
-                                    width: width * 0.312,
-                                    height: width * 0.025,
-                                    decoration: BoxDecoration(
-                                      color: _assignmentToDisplay == 'instructions'
-                                          ? colorMainTheme
-                                          : colorWhite,
-                                      borderRadius:
-                                      BorderRadius.circular(width * 2.56),
-                                    ),
-                                    child: Center(
-                                      child: WantText(
-                                        text: 'Instructions',
-                                        fontSize: width * 0.011,
-                                        fontWeight: FontWeight.w600,
-                                        fontFamily: 'Poppins',
-                                        textColor: _assignmentToDisplay == 'instructions'
-                                            ? colorBlack
-                                            : colorBlack,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () => setState(
-                                        () => _assignmentToDisplay = 'studentwork',
-                                  ),
-                                  child: Container(
-                                    width: width * 0.312,
-                                    height: width * 0.025,
-                                    decoration: BoxDecoration(
-                                      color: _assignmentToDisplay == 'studentwork'
-                                          ? colorMainTheme
-                                          : colorWhite,
-                                      borderRadius:
-                                      BorderRadius.circular(width * 2.56),
-                                    ),
-                                    child: Center(
-                                      child: WantText(
-                                        text: 'Student Work',
-                                        fontSize: width * 0.011,
-                                        fontWeight: FontWeight.w600,
-                                        fontFamily: 'Poppins',
-                                        textColor: _assignmentToDisplay == 'studentwork'
-                                            ? colorBlack
-                                            : colorBlack,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: height * 0.016),
-                            Expanded(
-                              child: SingleChildScrollView(
-                                child: _assignmentToDisplay == "instructions"
-                                    ? InstructionClass()
-                                    : StudentClass(),
-                              ),
-                            ),
-
-
-
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-
-            ),
-            SizedBox(width: width*0.004,),
-            Container(
-              height: height,
-              width: width * 0.24,
-              padding: EdgeInsets.only(top: height * 0.023),
-              decoration: BoxDecoration(
-                color: colorWhite,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  WantText(
-                      fontFamily: "Roboto",
-                      text: "Grading Rules",
-                      fontSize: width * 0.0125,
-                      fontWeight: FontWeight.w700,
-                      textColor: colorBlack),
-                  SizedBox(height: height * 0.023),
-
-                  // Show this Container only when Instructions are selected
-                  if (_assignmentToDisplay == 'instructions')
-                    Container(
-                      width: width,
-                      padding: EdgeInsets.all(width * 0.008),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Color.fromRGBO(77, 193, 82, 0.33), Colors.white],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                        ),
-                        border: Border(
-                          left: BorderSide(
-                              color: Color.fromRGBO(77, 193, 82, 0.66), width: 4),
-                        ),
-                      ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width*0.011),
+            child:
+            Flexible(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return Container(
+                    width: width*0.665,
+                    decoration: BoxDecoration(
+                      color: colorBox,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.009),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: width * 0.18,
-                            child: WantText(
-                                fontFamily: "Roboto",
-                                text:
-                                'Late Submission Policy \n⏰ 1 Day Late – Deduct 5% of total marks\n ⏰ 2-3 Days Late – Deduct 10% of total marks\n ⏰ More than 3 Days Late – Zero unless approved by admin',
-                                fontSize: width * 0.011,
-                                fontWeight: FontWeight.w600,
-                                textOverflow: TextOverflow.visible,
-                                textColor: colorBlack),
+
+                          Container(
+                            width: width,
+                            padding: EdgeInsets.all(width *0.005),
+                            decoration: BoxDecoration(
+                              color: colorHeaderCon,
+                              borderRadius: BorderRadius.circular(width*0.022),
+                            ),
+                            child:Row(
+                              children: [
+                                GestureDetector(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
+                                SizedBox(width: width*0.27,),
+                                WantText(
+                                    text: "Assignment ",
+                                    fontSize: width * 0.0166,
+                                    fontWeight: FontWeight.w700,
+                                    textColor: colorBlack),
+                              ],
+                            ) ,
                           ),
+
+
+                          SizedBox(height: height * 0.016),
+                          Row(
+
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              GestureDetector(
+                                onTap: () => setState(
+                                      () => _assignmentToDisplay = 'instructions',
+                                ),
+                                child: Container(
+                                  width: width * 0.312,
+                                  height: width * 0.025,
+                                  decoration: BoxDecoration(
+                                    color: _assignmentToDisplay == 'instructions'
+                                        ? colorMainTheme
+                                        : colorWhite,
+                                    borderRadius:
+                                    BorderRadius.circular(width * 2.56),
+                                  ),
+                                  child: Center(
+                                    child: WantText(
+                                      text: 'Instructions',
+                                      fontSize: width * 0.011,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: 'Poppins',
+                                      textColor: _assignmentToDisplay == 'instructions'
+                                          ? colorBlack
+                                          : colorBlack,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () => setState(
+                                      () => _assignmentToDisplay = 'studentwork',
+                                ),
+                                child: Container(
+                                  width: width * 0.312,
+                                  height: width * 0.025,
+                                  decoration: BoxDecoration(
+                                    color: _assignmentToDisplay == 'studentwork'
+                                        ? colorMainTheme
+                                        : colorWhite,
+                                    borderRadius:
+                                    BorderRadius.circular(width * 2.56),
+                                  ),
+                                  child: Center(
+                                    child: WantText(
+                                      text: 'Student Work',
+                                      fontSize: width * 0.011,
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: 'Poppins',
+                                      textColor: _assignmentToDisplay == 'studentwork'
+                                          ? colorBlack
+                                          : colorBlack,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: height * 0.016),
+                          Expanded(
+                            child: SingleChildScrollView(
+                              child: _assignmentToDisplay == "instructions"
+                                  ? InstructionClass()
+                                  : StudentClass(),
+                            ),
+                          ),
+
+
+
                         ],
                       ),
                     ),
-
-                  // Show this Container only when Student Work is selected
-                  if (_assignmentToDisplay == 'studentwork')
-                    Container(
-                      width: width,
-                      padding: EdgeInsets.all(width * 0.008),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Color.fromRGBO(77, 193, 82, 0.33), Colors.white],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                        ),
-                        border: Border(
-                          left: BorderSide(
-                              color: Color.fromRGBO(77, 193, 82, 0.66), width: 4),
-                        ),
-                      ),
-                      child: SizedBox(
-                        width: width * 0.18,
-                        child: RichText(
-                          text: TextSpan(
-                            style: TextStyle(
-                              fontSize: width * 0.011,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black,
-                            ),
-                            children: [
-                              TextSpan(text: "⚠ Plagiarism Policy\n\n"), // Title
-
-                              WidgetSpan(
-                                alignment: PlaceholderAlignment.middle, // Align inline
-                                child: Container(
-                                  width: 20, // Size of the bullet
-                                  height: 20,
-                                  margin: EdgeInsets.only(right: 6), // Space after bullet
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.red, // Red bullet
-                                  ),
-                                ),
-                              ),
-                              TextSpan(text: " 20%+ Plagiarism – Deduction or rework required\n\n"),
-
-                              WidgetSpan(
-                                alignment: PlaceholderAlignment.middle,
-                                child: Container(
-                                  width: 20,
-                                  height: 20,
-                                  margin: EdgeInsets.only(right: 6),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.red,
-                                  ),
-                                ),
-                              ),
-                              TextSpan(text: " Copied Work from Peers – Both students receive zero unless justified\n\n"),
-
-                              WidgetSpan(
-                                alignment: PlaceholderAlignment.middle,
-                                child: Container(
-                                  width: 20,
-                                  height: 20,
-                                  margin: EdgeInsets.only(right: 6),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.red,
-                                  ),
-                                ),
-                              ),
-                              TextSpan(text: " AI-Generated or Unoriginal Work – Needs proper verification"),
-                            ],
-                          ),
-                        )
-
-
-                      ),
-                    ),
-
-                ],
+                  );
+                },
               ),
             ),
-          ],
-        ),
+
+          ),
+          SizedBox(width: width*0.004,),
+          Container(
+            height: height,
+            width: width * 0.24,
+            padding: EdgeInsets.only(top: height * 0.023),
+            decoration: BoxDecoration(
+              color: colorWhite,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                WantText(
+                    fontFamily: "Roboto",
+                    text: "Grading Rules",
+                    fontSize: width * 0.0125,
+                    fontWeight: FontWeight.w700,
+                    textColor: colorBlack),
+                SizedBox(height: height * 0.023),
+
+                // Show this Container only when Instructions are selected
+                if (_assignmentToDisplay == 'instructions')
+                  Container(
+                    width: width,
+                    padding: EdgeInsets.all(width * 0.008),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color.fromRGBO(77, 193, 82, 0.33), Colors.white],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      border: Border(
+                        left: BorderSide(
+                            color: Color.fromRGBO(77, 193, 82, 0.66), width: 4),
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: width * 0.18,
+                          child: WantText(
+                              fontFamily: "Roboto",
+                              text:
+                              'Late Submission Policy \n⏰ 1 Day Late – Deduct 5% of total marks\n ⏰ 2-3 Days Late – Deduct 10% of total marks\n ⏰ More than 3 Days Late – Zero unless approved by admin',
+                              fontSize: width * 0.011,
+                              fontWeight: FontWeight.w600,
+                              textOverflow: TextOverflow.visible,
+                              textColor: colorBlack),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                // Show this Container only when Student Work is selected
+                if (_assignmentToDisplay == 'studentwork')
+                  Container(
+                    width: width,
+                    padding: EdgeInsets.all(width * 0.008),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color.fromRGBO(77, 193, 82, 0.33), Colors.white],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      border: Border(
+                        left: BorderSide(
+                            color: Color.fromRGBO(77, 193, 82, 0.66), width: 4),
+                      ),
+                    ),
+                    child: SizedBox(
+                      width: width * 0.18,
+                      child: RichText(
+                        text: TextSpan(
+                          style: TextStyle(
+                            fontSize: width * 0.011,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                          ),
+                          children: [
+                            TextSpan(text: "⚠ Plagiarism Policy\n\n"), // Title
+
+                            WidgetSpan(
+                              alignment: PlaceholderAlignment.middle, // Align inline
+                              child: Container(
+                                width: 20, // Size of the bullet
+                                height: 20,
+                                margin: EdgeInsets.only(right: 6), // Space after bullet
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.red, // Red bullet
+                                ),
+                              ),
+                            ),
+                            TextSpan(text: " 20%+ Plagiarism – Deduction or rework required\n\n"),
+
+                            WidgetSpan(
+                              alignment: PlaceholderAlignment.middle,
+                              child: Container(
+                                width: 20,
+                                height: 20,
+                                margin: EdgeInsets.only(right: 6),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                            TextSpan(text: " Copied Work from Peers – Both students receive zero unless justified\n\n"),
+
+                            WidgetSpan(
+                              alignment: PlaceholderAlignment.middle,
+                              child: Container(
+                                width: 20,
+                                height: 20,
+                                margin: EdgeInsets.only(right: 6),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                            TextSpan(text: " AI-Generated or Unoriginal Work – Needs proper verification"),
+                          ],
+                        ),
+                      )
+
+
+                    ),
+                  ),
+
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

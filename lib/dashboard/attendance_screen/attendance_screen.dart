@@ -131,506 +131,504 @@ class _DashAttendanceScreenState extends State<DashAttendanceScreen> {
       backgroundColor: colorWhite,
 
 
-      body: Expanded(
-        child: Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width*0.011),
-              child: Container(
+      body: Row(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width*0.011),
+            child: Container(
 
-                width: width*0.665,
-                decoration: BoxDecoration(
-                  color: colorBox,
-                ),
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+              width: width*0.665,
+              decoration: BoxDecoration(
+                color: colorBox,
+              ),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
 
-                        Container(
-                          width: width,
-                          padding: EdgeInsets.all( width * 0.008),
-                          decoration: BoxDecoration(
-                            color: colorCustomButtonLabelWhite,
-                            borderRadius: BorderRadius.circular(width*0.0083),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Container(
+                        width: width,
+                        padding: EdgeInsets.all( width * 0.008),
+                        decoration: BoxDecoration(
+                          color: colorCustomButtonLabelWhite,
+                          borderRadius: BorderRadius.circular(width*0.0083),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      WantText(
+                                          fontFamily: "Roboto",
+                                          text: 'Class Teacher of ',
+                                          fontSize: width * 0.0083,
+                                          fontWeight: FontWeight.w500,
+                                          textColor: colorMainTheme),
+                              GestureDetector(
+                                onTap: () => _showCalendarDialog(context),
+                                child: SizedBox(
+                                  height: height * 0.033,
+                                  child: Container(
+                                    padding: EdgeInsets.all(width * 0.003),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: colorMainTheme),
+                                      color: colorMainTheme,
+                                      borderRadius: BorderRadius.circular(width * 0.006),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
                                       children: [
-                                        WantText(
-                                            fontFamily: "Roboto",
-                                            text: 'Class Teacher of ',
-                                            fontSize: width * 0.0083,
-                                            fontWeight: FontWeight.w500,
-                                            textColor: colorMainTheme),
-                                GestureDetector(
-                                  onTap: () => _showCalendarDialog(context),
-                                  child: SizedBox(
-                                    height: height * 0.033,
-                                    child: Container(
-                                      padding: EdgeInsets.all(width * 0.003),
-                                      decoration: BoxDecoration(
-                                        border: Border.all(color: colorMainTheme),
-                                        color: colorMainTheme,
-                                        borderRadius: BorderRadius.circular(width * 0.006),
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.calendar_today_outlined, size: width * 0.0125, color: Colors.white),
-                                          SizedBox(width: width * 0.005),
-                                          Text(
-                                            "${selectedDate.day} ${_getMonthName(selectedDate.month)} ${selectedDate.year}",
-                                            style: GoogleFonts.roboto(
-                                              textStyle: TextStyle(
-                                                fontSize: width * 0.0097,
-                                                color: colorWhite,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                        Icon(Icons.calendar_today_outlined, size: width * 0.0125, color: Colors.white),
+                                        SizedBox(width: width * 0.005),
+                                        Text(
+                                          "${selectedDate.day} ${_getMonthName(selectedDate.month)} ${selectedDate.year}",
+                                          style: GoogleFonts.roboto(
+                                            textStyle: TextStyle(
+                                              fontSize: width * 0.0097,
+                                              color: colorWhite,
+                                              fontWeight: FontWeight.w600,
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-
+                                        ),
                                       ],
                                     ),
-                                    WantText(
-                                        fontFamily: "Roboto",
-                                        text: 'Grade 12 - A',
-                                        fontSize: width * 0.0138,
-                                        fontWeight: FontWeight.w600,
-                                        textColor: colorBlack),
-                                  ],
+                                  ),
                                 ),
                               ),
 
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: height * 0.02),
-                        CustomButton(Width: width, onTap: (){}, label: "Take Attendance"),
-
-
-                        SizedBox(height: height * 0.02),
-
-                        WantText(
-                            text: 'List of Students',
-                            fontSize: width * 0.0125,
-                            fontWeight: FontWeight.w700,
-                            textColor: colorBlack),
-                        SizedBox(height: height * 0.02),
-
-                        Row(crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              width: width*0.570,
-                              child: TextFormField(
-                                decoration: InputDecoration(
-
-                                  prefixIcon:  Padding(
-                                    padding:EdgeInsets.all(12),
-                                    child: Image.asset("assets/images/search.png",width: width*0.0097,height: height*0.035),
+                                    ],
                                   ),
-
-                                  hintText: "Search for Student",
-                                  hintStyle: TextStyle(
-                                      color: colorDarkGreyText,
-                                      fontSize: width * 0.0097,
-                                      fontWeight: FontWeight.w400
-                                  ),
-                                  fillColor: colorWhite,
-                                  filled: true,
-                                  contentPadding: EdgeInsets.all(0),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(width * 0.0138),
-                                      borderSide: BorderSide(color: colorWhite)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(width * 0.0138),
-                                      borderSide: BorderSide(color: colorWhite)),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: width*0.025),
-
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  isSelecteds = !isSelecteds; // Toggle state
-                                });
-                              },
-                              child: Column(
-                                children: [
-                                  Container(
-                                    width: 35,
-                                    height: 35,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(color: colorMainTheme, width: 1), // Always blue border
-                                      color: isSelecteds ? colorGrey : colorMainTheme, // White when selected, else blue
-                                    ),
-                                    child: isSelecteds
-                                        ? null // If selected, remove inner circle
-                                        : Icon(Icons.circle, size: width * 0.008, color: colorWhite), // White inner circle initially
-                                  ),
-                                  SizedBox(height: height * 0.003),
-                                  WantText(text: "Mark all\npresent", fontSize: width * 0.006, fontWeight: FontWeight.w500, textColor:colorMainTheme),
-
+                                  WantText(
+                                      fontFamily: "Roboto",
+                                      text: 'Grade 12 - A',
+                                      fontSize: width * 0.0138,
+                                      fontWeight: FontWeight.w600,
+                                      textColor: colorBlack),
                                 ],
                               ),
                             ),
+
                           ],
                         ),
-                        SizedBox(height: height * 0.02),
-
-                        ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemCount: students.length,
-                          itemBuilder: (context, index) {
-                            var student = students[index];
-
-                            return Column(
-                              children: [
-                                Container(
-                                  width: width,
-                                  padding: EdgeInsets.all( width * 0.005),
-                                  decoration: BoxDecoration(
-                                    color: colorCustomButtonLabelWhite,
-                                    borderRadius: BorderRadius.circular(width*0.0083),
-                                  ),
-                                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Row(
-                                        children: [
-                                          Image.asset(
-                                            student['photo'],
-                                            width: width * 0.025,
-                                            height: width * 0.025,
-                                          ),
-                                          SizedBox(width: width * 0.016),
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-
-                                              WantText(text: student['name'], fontSize: width * 0.011,fontWeight: FontWeight.w600, textColor: colorBlack),
-
-                                              WantText(text: 'Roll no. - ${student['rollNo']}', fontSize: width * 0.0097,fontWeight: FontWeight.w400, textColor: colorBlack),
-
-                                            ],
-                                          ),
-
-                                        ],
-                                      ),
+                      ),
+                      SizedBox(height: height * 0.02),
+                      CustomButton(Width: width, onTap: (){}, label: "Take Attendance"),
 
 
-                                      Row(
-                                        children: [
-                                          GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                student['isPresent'] = true; // Mark as present
-                                              });
-                                            },
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  width:35,
-                                                  height: 35,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                      color: student['isPresent'] ? colorGreen : colorMainTheme,
-                                                      width: 1,
-                                                    ),
-                                                    color: student['isPresent'] ? colorGreen : colorGrey,
-                                                  ),
-                                                  child: student['isPresent']
-                                                      ? Icon(Icons.circle, size: width * 0.008, color: colorWhite)
-                                                      : SizedBox.shrink(), // Only show the circle when present
-                                                ),
-                                                WantText(text: "Present", fontSize: width * 0.006, fontWeight: FontWeight.w600, textColor:student['isPresent'] ? colorGreen : colorMainTheme,)
-                                              ],
-                                            ),
-                                          ),
-                                          SizedBox(width: width * 0.012),
-                                          GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                student['isPresent'] = false; // Mark as absent
-                                              });
-                                            },
-                                            child: Column(
-                                              children: [
-                                                Container(
-                                                  width: 35,
-                                                  height: 35,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                      color: student['isPresent'] ? colorMainTheme : colorRedCalendar,
-                                                      width: 1,
-                                                    ),
-                                                    color: student['isPresent'] ? colorGrey : colorRedCalendar,
-                                                  ),
-                                                  child: !student['isPresent']
-                                                      ? Icon(Icons.circle, size: width * 0.008, color: colorWhite)
-                                                      : SizedBox.shrink(), // Only show the circle when absent
-                                                ),
+                      SizedBox(height: height * 0.02),
 
-                                                WantText(text: "Absent", fontSize: width * 0.006, fontWeight: FontWeight.w600, textColor:student['isPresent'] ? colorMainTheme : colorRedCalendar,)
+                      WantText(
+                          text: 'List of Students',
+                          fontSize: width * 0.0125,
+                          fontWeight: FontWeight.w700,
+                          textColor: colorBlack),
+                      SizedBox(height: height * 0.02),
 
-                                              ],
-                                            ),
-                                          ),
+                      Row(crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: width*0.570,
+                            child: TextFormField(
+                              decoration: InputDecoration(
 
-                                          SizedBox(width: width * 0.012),
-                                          Container(
-                                            padding: EdgeInsets.symmetric(
-                                                vertical: height * 0.0008, horizontal: width * 0.003),
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                  color: colorMainTheme,
-                                                  width: 1,
-                                                ),
-                                                borderRadius: BorderRadius.circular(width * 0.008),
-                                                color: colorWhite),
-                                            child: Row(
-                                              children: [
-                                                Text(
-                                                  "Other",
-                                                  style: GoogleFonts.roboto(
-                                                      fontSize: width * 0.006,
-                                                      fontWeight: FontWeight.w500,
-                                                      color: colorMainTheme),
-                                                ),
-                                                Icon(
-                                                  Icons.keyboard_arrow_down,
-                                                  color: colorMainTheme,
-                                                  size: width * 0.013,
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
+                                prefixIcon:  Padding(
+                                  padding:EdgeInsets.all(12),
+                                  child: Image.asset("assets/images/search.png",width: width*0.0097,height: height*0.035),
                                 ),
-                                SizedBox(height: height*0.016,)
-                              ],
-                            );
-                          },
-                        ),
 
-                        CustomButton(Width: width, onTap: (){}, label: "Submit Attendance"),
+                                hintText: "Search for Student",
+                                hintStyle: TextStyle(
+                                    color: colorDarkGreyText,
+                                    fontSize: width * 0.0097,
+                                    fontWeight: FontWeight.w400
+                                ),
+                                fillColor: colorWhite,
+                                filled: true,
+                                contentPadding: EdgeInsets.all(0),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(width * 0.0138),
+                                    borderSide: BorderSide(color: colorWhite)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(width * 0.0138),
+                                    borderSide: BorderSide(color: colorWhite)),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: width*0.025),
 
-                        SizedBox(height: height*0.023),
-
-                        WantText(
-                            text: 'Leave Request',
-                            fontSize: width * 0.0125,
-                            fontWeight: FontWeight.w700,
-                            textColor: colorBlack),
-                        SizedBox(height: height * 0.02),
-
-                        ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemCount: leaveRequests.length,
-
-                          itemBuilder: (context, index) {
-                            Map<String, dynamic> request = leaveRequests[index];
-                            String status = request["status"];
-
-                            return Column(
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isSelecteds = !isSelecteds; // Toggle state
+                              });
+                            },
+                            child: Column(
                               children: [
                                 Container(
-                                  width: width,
-                                  padding: EdgeInsets.all( width * 0.008),
+                                  width: 35,
+                                  height: 35,
                                   decoration: BoxDecoration(
-                                    color: colorCustomButtonLabelWhite,
-                                    borderRadius: BorderRadius.circular(width*0.0083),
+                                    shape: BoxShape.circle,
+                                    border: Border.all(color: colorMainTheme, width: 1), // Always blue border
+                                    color: isSelecteds ? colorGrey : colorMainTheme, // White when selected, else blue
                                   ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
+                                  child: isSelecteds
+                                      ? null // If selected, remove inner circle
+                                      : Icon(Icons.circle, size: width * 0.008, color: colorWhite), // White inner circle initially
+                                ),
+                                SizedBox(height: height * 0.003),
+                                WantText(text: "Mark all\npresent", fontSize: width * 0.006, fontWeight: FontWeight.w500, textColor:colorMainTheme),
 
-                                      Row(
-                                        children: [
-                                          Image.asset(
-                                            request["image"],
-                                            width: width * 0.028,
-                                            height: width * 0.028,
-                                          ),
-                                          SizedBox(width: width * 0.016),
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: height * 0.02),
+
+                      ListView.builder(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: students.length,
+                        itemBuilder: (context, index) {
+                          var student = students[index];
+
+                          return Column(
+                            children: [
+                              Container(
+                                width: width,
+                                padding: EdgeInsets.all( width * 0.005),
+                                decoration: BoxDecoration(
+                                  color: colorCustomButtonLabelWhite,
+                                  borderRadius: BorderRadius.circular(width*0.0083),
+                                ),
+                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          student['photo'],
+                                          width: width * 0.025,
+                                          height: width * 0.025,
+                                        ),
+                                        SizedBox(width: width * 0.016),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+
+                                            WantText(text: student['name'], fontSize: width * 0.011,fontWeight: FontWeight.w600, textColor: colorBlack),
+
+                                            WantText(text: 'Roll no. - ${student['rollNo']}', fontSize: width * 0.0097,fontWeight: FontWeight.w400, textColor: colorBlack),
+
+                                          ],
+                                        ),
+
+                                      ],
+                                    ),
+
+
+                                    Row(
+                                      children: [
+                                        GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              student['isPresent'] = true; // Mark as present
+                                            });
+                                          },
+                                          child: Column(
                                             children: [
+                                              Container(
+                                                width:35,
+                                                height: 35,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                    color: student['isPresent'] ? colorGreen : colorMainTheme,
+                                                    width: 1,
+                                                  ),
+                                                  color: student['isPresent'] ? colorGreen : colorGrey,
+                                                ),
+                                                child: student['isPresent']
+                                                    ? Icon(Icons.circle, size: width * 0.008, color: colorWhite)
+                                                    : SizedBox.shrink(), // Only show the circle when present
+                                              ),
+                                              WantText(text: "Present", fontSize: width * 0.006, fontWeight: FontWeight.w600, textColor:student['isPresent'] ? colorGreen : colorMainTheme,)
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(width: width * 0.012),
+                                        GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              student['isPresent'] = false; // Mark as absent
+                                            });
+                                          },
+                                          child: Column(
+                                            children: [
+                                              Container(
+                                                width: 35,
+                                                height: 35,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                    color: student['isPresent'] ? colorMainTheme : colorRedCalendar,
+                                                    width: 1,
+                                                  ),
+                                                  color: student['isPresent'] ? colorGrey : colorRedCalendar,
+                                                ),
+                                                child: !student['isPresent']
+                                                    ? Icon(Icons.circle, size: width * 0.008, color: colorWhite)
+                                                    : SizedBox.shrink(), // Only show the circle when absent
+                                              ),
 
-                                              WantText(text: request["name"], fontSize: width * 0.011, fontWeight: FontWeight.w600, textColor: colorBlack),
-
-                                              WantText(text: 'Roll no. - ${request["rollNo"]}', fontSize: width * 0.0097, fontWeight: FontWeight.w400, textColor: colorBlack),
-
-                                              WantText(text: 'Reason: ${request["reason"]}', fontSize: width * 0.0097, fontWeight: FontWeight.w400, textColor: colorBlack),
+                                              WantText(text: "Absent", fontSize: width * 0.006, fontWeight: FontWeight.w600, textColor:student['isPresent'] ? colorMainTheme : colorRedCalendar,)
 
                                             ],
                                           ),
-                                        ],
-                                      ),
+                                        ),
 
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
+                                        SizedBox(width: width * 0.012),
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                              vertical: height * 0.0008, horizontal: width * 0.003),
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                color: colorMainTheme,
+                                                width: 1,
+                                              ),
+                                              borderRadius: BorderRadius.circular(width * 0.008),
+                                              color: colorWhite),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                "Other",
+                                                style: GoogleFonts.roboto(
+                                                    fontSize: width * 0.006,
+                                                    fontWeight: FontWeight.w500,
+                                                    color: colorMainTheme),
+                                              ),
+                                              Icon(
+                                                Icons.keyboard_arrow_down,
+                                                color: colorMainTheme,
+                                                size: width * 0.013,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(height: height*0.016,)
+                            ],
+                          );
+                        },
+                      ),
 
-                                          GestureDetector(
-                                            onTap: () {
-                                              updateStatus(index, "Approved");
-                                            },
-                                            child: Row(
-                                              children: [
-                                                Container(
-                                                  width: 22,
-                                                  height: 22,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                      color: status == "Approved" ? colorGreen : colorMainTheme,
-                                                      width: 1,
-                                                    ),
-                                                    color: status == "Approved" ? colorGreen : colorGrey,
-                                                  ),
-                                                  child: status == "Approved"
-                                                      ? Icon(Icons.circle, size: width * 0.005, color: colorWhite)
-                                                      : null,
-                                                ),
-                                                SizedBox(width: width * 0.007),
-                                                Text(
-                                                  "Approved",
-                                                  style: TextStyle(
+                      CustomButton(Width: width, onTap: (){}, label: "Submit Attendance"),
+
+                      SizedBox(height: height*0.023),
+
+                      WantText(
+                          text: 'Leave Request',
+                          fontSize: width * 0.0125,
+                          fontWeight: FontWeight.w700,
+                          textColor: colorBlack),
+                      SizedBox(height: height * 0.02),
+
+                      ListView.builder(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: leaveRequests.length,
+
+                        itemBuilder: (context, index) {
+                          Map<String, dynamic> request = leaveRequests[index];
+                          String status = request["status"];
+
+                          return Column(
+                            children: [
+                              Container(
+                                width: width,
+                                padding: EdgeInsets.all( width * 0.008),
+                                decoration: BoxDecoration(
+                                  color: colorCustomButtonLabelWhite,
+                                  borderRadius: BorderRadius.circular(width*0.0083),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          request["image"],
+                                          width: width * 0.028,
+                                          height: width * 0.028,
+                                        ),
+                                        SizedBox(width: width * 0.016),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+
+                                            WantText(text: request["name"], fontSize: width * 0.011, fontWeight: FontWeight.w600, textColor: colorBlack),
+
+                                            WantText(text: 'Roll no. - ${request["rollNo"]}', fontSize: width * 0.0097, fontWeight: FontWeight.w400, textColor: colorBlack),
+
+                                            WantText(text: 'Reason: ${request["reason"]}', fontSize: width * 0.0097, fontWeight: FontWeight.w400, textColor: colorBlack),
+
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+
+                                        GestureDetector(
+                                          onTap: () {
+                                            updateStatus(index, "Approved");
+                                          },
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                width: 22,
+                                                height: 22,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
                                                     color: status == "Approved" ? colorGreen : colorMainTheme,
-                                                    fontSize: width * 0.0083,
-                                                    fontWeight: FontWeight.w500,
+                                                    width: 1,
                                                   ),
+                                                  color: status == "Approved" ? colorGreen : colorGrey,
                                                 ),
-                                              ],
-                                            ),
+                                                child: status == "Approved"
+                                                    ? Icon(Icons.circle, size: width * 0.005, color: colorWhite)
+                                                    : null,
+                                              ),
+                                              SizedBox(width: width * 0.007),
+                                              Text(
+                                                "Approved",
+                                                style: TextStyle(
+                                                  color: status == "Approved" ? colorGreen : colorMainTheme,
+                                                  fontSize: width * 0.0083,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          SizedBox(height: height * 0.004),
+                                        ),
+                                        SizedBox(height: height * 0.004),
 
 
-                                          GestureDetector(
-                                            onTap: () {
-                                              updateStatus(index, "Rejected");
-                                            },
-                                            child: Row(
-                                              children: [
-                                                Container(
-                                                  width: 22,
-                                                  height: 22,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                      color: status == "Rejected" ? colorRedCalendar : colorMainTheme,
-                                                      width: 1,
-                                                    ),
-                                                    color: status == "Rejected" ? colorRedCalendar : colorGrey,
-                                                  ),
-                                                  child: status == "Rejected"
-                                                      ? Icon(Icons.circle, size: width * 0.005, color: colorWhite)
-                                                      : null,
-                                                ),
-                                                SizedBox(width: width * 0.007),
-                                                Text(
-                                                  "Rejected",
-                                                  style: TextStyle(
+                                        GestureDetector(
+                                          onTap: () {
+                                            updateStatus(index, "Rejected");
+                                          },
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                width: 22,
+                                                height: 22,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
                                                     color: status == "Rejected" ? colorRedCalendar : colorMainTheme,
-                                                    fontSize: width * 0.0083,
-                                                    fontWeight: FontWeight.w500,
+                                                    width: 1,
                                                   ),
+                                                  color: status == "Rejected" ? colorRedCalendar : colorGrey,
                                                 ),
-                                              ],
-                                            ),
+                                                child: status == "Rejected"
+                                                    ? Icon(Icons.circle, size: width * 0.005, color: colorWhite)
+                                                    : null,
+                                              ),
+                                              SizedBox(width: width * 0.007),
+                                              Text(
+                                                "Rejected",
+                                                style: TextStyle(
+                                                  color: status == "Rejected" ? colorRedCalendar : colorMainTheme,
+                                                  fontSize: width * 0.0083,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                          SizedBox(height: height * 0.004),
+                                        ),
+                                        SizedBox(height: height * 0.004),
 
-                                          GestureDetector(
-                                            onTap: () {
-                                              updateStatus(index, "Pending");
-                                            },
-                                            child: Row(
-                                              children: [
-                                                Container(
-                                                  width: 22,
-                                                  height: 22,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                      color: status == "Pending" ? colorEvent : colorMainTheme,
-                                                      width: 1,
-                                                    ),
-                                                    color: status == "Pending" ? colorEvent : colorGrey,
-                                                  ),
-                                                  child: status == "Pending"
-                                                      ? Icon(Icons.circle, size: width * 0.005, color: colorWhite)
-                                                      : null,
-                                                ),
-                                                SizedBox(width: width * 0.007),
-                                                Text(
-                                                  "Pending",
-                                                  style: TextStyle(
+                                        GestureDetector(
+                                          onTap: () {
+                                            updateStatus(index, "Pending");
+                                          },
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                width: 22,
+                                                height: 22,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
                                                     color: status == "Pending" ? colorEvent : colorMainTheme,
-                                                    fontSize: width * 0.0083,
-                                                    fontWeight: FontWeight.w500,
+                                                    width: 1,
                                                   ),
+                                                  color: status == "Pending" ? colorEvent : colorGrey,
                                                 ),
-                                              ],
-                                            ),
+                                                child: status == "Pending"
+                                                    ? Icon(Icons.circle, size: width * 0.005, color: colorWhite)
+                                                    : null,
+                                              ),
+                                              SizedBox(width: width * 0.007),
+                                              Text(
+                                                "Pending",
+                                                style: TextStyle(
+                                                  color: status == "Pending" ? colorEvent : colorMainTheme,
+                                                  fontSize: width * 0.0083,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
                                 ),
-                                SizedBox(height: height*0.016),
-                              ],
-                            );
-                          },
-                        ),
+                              ),
+                              SizedBox(height: height*0.016),
+                            ],
+                          );
+                        },
+                      ),
 
 
-                        CustomButton(Width: width, onTap: (){}, label: "Submit Approval"),
-                        SizedBox(
-                          height: height * 0.023,
-                        ),
+                      CustomButton(Width: width, onTap: (){}, label: "Submit Approval"),
+                      SizedBox(
+                        height: height * 0.023,
+                      ),
 
 
 
 
-                      ],
-                    ),
+                    ],
                   ),
                 ),
               ),
             ),
-            SizedBox(width: width*0.004,),
-            NoticWidget(),
-          ],
-        ),
+          ),
+          SizedBox(width: width*0.004,),
+          NoticWidget(),
+        ],
       ),
     );
   }

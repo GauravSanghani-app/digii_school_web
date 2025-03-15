@@ -99,82 +99,80 @@ class _TimeTableScreenState extends State<TimeTableScreen> {
       backgroundColor: colorWhite,
 
 
-      body: Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width*0.011),
-              child: Container(
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width*0.011),
+            child: Container(
 
-                width: width*0.665,
-                decoration: BoxDecoration(
-                  color: colorBox,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
-                  child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: width,
-                      padding: EdgeInsets.all(width * 0.005),
-                      decoration: BoxDecoration(
-                        color: colorHeaderCon,
-                        borderRadius: BorderRadius.circular(width * 0.022),
-                      ),
-                      child: Row(
+              width: width*0.665,
+              decoration: BoxDecoration(
+                color: colorBox,
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
+                child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: width,
+                    padding: EdgeInsets.all(width * 0.005),
+                    decoration: BoxDecoration(
+                      color: colorHeaderCon,
+                      borderRadius: BorderRadius.circular(width * 0.022),
+                    ),
+                    child: Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(Icons.arrow_back_ios, color: colorBlack, size: height * 0.026),
+                        ),
+                        SizedBox(width: width * 0.27),
+                        WantText(
+                          text: "Time Table",
+                          fontSize: width * 0.0166,
+                          fontWeight: FontWeight.w700,
+                          textColor: colorBlack,
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: height * 0.03),
+
+                  _buildCalendar(),
+
+
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
+                          ListView.builder(
+                            padding: EdgeInsets.all(0.0),
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: schedule.length,
+                            itemBuilder: (context, index) {
+                              return _buildScheduleCard(schedule[index]);
                             },
-                            child: Icon(Icons.arrow_back_ios, color: colorBlack, size: height * 0.026),
-                          ),
-                          SizedBox(width: width * 0.27),
-                          WantText(
-                            text: "Time Table",
-                            fontSize: width * 0.0166,
-                            fontWeight: FontWeight.w700,
-                            textColor: colorBlack,
                           ),
                         ],
                       ),
                     ),
+                  ),
 
-                    SizedBox(height: height * 0.03),
+                ],
+                              ),
+              ),
 
-                    _buildCalendar(),
-
-
-                    Expanded(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            ListView.builder(
-                              padding: EdgeInsets.all(0.0),
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: schedule.length,
-                              itemBuilder: (context, index) {
-                                return _buildScheduleCard(schedule[index]);
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                  ],
-                                ),
-                ),
-
-      ),
             ),
-            SizedBox(width: width*0.004,),
-            NoticWidget(),
-          ],
-        ),
+          ),
+          SizedBox(width: width*0.004,),
+          NoticWidget(),
+        ],
       ),
     );
   }

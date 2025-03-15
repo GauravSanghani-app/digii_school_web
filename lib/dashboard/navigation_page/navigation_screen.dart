@@ -39,7 +39,7 @@ class _DashNavigationScreenState extends State<DashNavigationScreen> {
       body: Column(
         children: [
           SizedBox(
-            height: height*0.084,
+            height: height*0.088,
             child: Container(
                 width: width,
                 color: colorBoxBackground,

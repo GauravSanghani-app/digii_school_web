@@ -21,107 +21,106 @@ class _MathematicsScreenState extends State<MathematicsScreen> {
       backgroundColor: colorWhite,
 
 
-      body: Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width*0.011),
-              child: Container(
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width*0.011),
+            child: Container(
 
-                width: width*0.665,
-                decoration: BoxDecoration(
-                  color: colorBox,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+              width: width*0.665,
+              decoration: BoxDecoration(
+                color: colorBox,
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
 
-                      Container(
-                        width: width,
-                        padding: EdgeInsets.all(width *0.005),
-                        decoration: BoxDecoration(
-                          color: colorHeaderCon,
-                          borderRadius: BorderRadius.circular(width*0.022),
-                        ),
-                        child:Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
-                            // SizedBox(width: width*0.27,),
-                            WantText(
-                                text: "Mathematics",
-                                fontSize: width * 0.0166,
-                                fontWeight: FontWeight.w700,
-                                textColor: colorBlack),
-
-
-                          ],
-                        ) ,
+                    Container(
+                      width: width,
+                      padding: EdgeInsets.all(width *0.005),
+                      decoration: BoxDecoration(
+                        color: colorHeaderCon,
+                        borderRadius: BorderRadius.circular(width*0.022),
                       ),
+                      child:Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
+                          // SizedBox(width: width*0.27,),
+                          WantText(
+                              text: "Mathematics",
+                              fontSize: width * 0.0166,
+                              fontWeight: FontWeight.w700,
+                              textColor: colorBlack),
 
-                      SizedBox(height: height * 0.03),
-                      Container(
-                        width: width,
-                        padding: EdgeInsets.all(width * 0.007),
-                        decoration: BoxDecoration(
-                          color: colorMainTheme,
-                          borderRadius: BorderRadius.circular(width * 0.0083),
-                        ),
-                        child: WantText(
-                            text: "Subject - Mathematics",
-                            fontSize: width * 0.011,
-                            fontWeight: FontWeight.w600,
-                            textColor: colorWhite),
+
+                        ],
+                      ) ,
+                    ),
+
+                    SizedBox(height: height * 0.03),
+                    Container(
+                      width: width,
+                      padding: EdgeInsets.all(width * 0.007),
+                      decoration: BoxDecoration(
+                        color: colorMainTheme,
+                        borderRadius: BorderRadius.circular(width * 0.0083),
                       ),
+                      child: WantText(
+                          text: "Subject - Mathematics",
+                          fontSize: width * 0.011,
+                          fontWeight: FontWeight.w600,
+                          textColor: colorWhite),
+                    ),
 
-                      SizedBox(height: height * 0.02),
+                    SizedBox(height: height * 0.02),
 
-                      Container(
-                        width: width,
-                        padding: EdgeInsets.all(width * 0.007),
-                        decoration: BoxDecoration(
-                          color: colorMainTheme,
-                          borderRadius: BorderRadius.circular(width * 0.0083),
-                        ),
-                        child: WantText(
-                            text: "Total Marks - 100 Marks",
-                            fontSize: width * 0.011,
-                            fontWeight: FontWeight.w600,
-                            textColor: colorWhite),
+                    Container(
+                      width: width,
+                      padding: EdgeInsets.all(width * 0.007),
+                      decoration: BoxDecoration(
+                        color: colorMainTheme,
+                        borderRadius: BorderRadius.circular(width * 0.0083),
                       ),
+                      child: WantText(
+                          text: "Total Marks - 100 Marks",
+                          fontSize: width * 0.011,
+                          fontWeight: FontWeight.w600,
+                          textColor: colorWhite),
+                    ),
 
-                      SizedBox(height: height * 0.02),
-                      Center(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(6), // Apply border radius to entire table
-                          child: Table(
-                            border: TableBorder.all(
-                              color: Colors.grey.shade300,
-                              width: 1,
-                            ),
-                            columnWidths: const {
-                              0: FlexColumnWidth(1),
-                              1: FlexColumnWidth(3),
-                              2: FlexColumnWidth(2),
-                              3: FlexColumnWidth(2),
-                              4: FlexColumnWidth(2),
-                            },
-                            children: [
-                              _buildHeaderRow(), // Header with top rounded corners
-                              _buildDataRow("07.03.2023", "Algebra", "B", "15", "Good"),
-                              _buildDataRow("14.02.2025", "Integrals", "C", "10", "Average"),
-                              _buildDataRow("24.01.2025", "Determinants", "B+", "18", "Very Good"), // Last row with bottom radius
-                            ],
+                    SizedBox(height: height * 0.02),
+                    Center(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(6), // Apply border radius to entire table
+                        child: Table(
+                          border: TableBorder.all(
+                            color: Colors.grey.shade300,
+                            width: 1,
                           ),
+                          columnWidths: const {
+                            0: FlexColumnWidth(1),
+                            1: FlexColumnWidth(3),
+                            2: FlexColumnWidth(2),
+                            3: FlexColumnWidth(2),
+                            4: FlexColumnWidth(2),
+                          },
+                          children: [
+                            _buildHeaderRow(), // Header with top rounded corners
+                            _buildDataRow("07.03.2023", "Algebra", "B", "15", "Good"),
+                            _buildDataRow("14.02.2025", "Integrals", "C", "10", "Average"),
+                            _buildDataRow("24.01.2025", "Determinants", "B+", "18", "Very Good"), // Last row with bottom radius
+                          ],
                         ),
-                      )
+                      ),
+                    )
 
 
 
@@ -129,15 +128,14 @@ class _MathematicsScreenState extends State<MathematicsScreen> {
 
 
 
-                    ],
-                  ),
+                  ],
                 ),
               ),
             ),
-            SizedBox(width: width*0.004,),
-            RecentActivityWidget(),
-          ],
-        ),
+          ),
+          SizedBox(width: width*0.004,),
+          RecentActivityWidget(),
+        ],
       ),
     );
   }

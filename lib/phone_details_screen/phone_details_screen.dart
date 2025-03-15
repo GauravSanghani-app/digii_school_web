@@ -20,242 +20,240 @@ class _PhoneScreenState extends State<PhoneScreen> {
       backgroundColor: colorWhite,
 
 
-      body: Expanded(
-        child: Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width*0.011),
-              child: Container(
+      body: Row(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width*0.011),
+            child: Container(
 
-                width: width*0.665,
-                decoration: BoxDecoration(
-                  color: colorBox,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.008),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+              width: width*0.665,
+              decoration: BoxDecoration(
+                color: colorBox,
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.008),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
 
-                        const _ContactCards(
-                          heading: "Class Teacher Details",
-                          details: {
-                            "Name": "Mrs. Kavita Sharma",
-                            "Designation": "Class 12th A Teacher",
-                            "Subject": "Mathematics",
-                            "Contact Number": "+91 1234567890",
-                            "Email": "kavita.sharma@gmail.com",
-                          },
-                          availability: {
-                            "Weekdays": "9:00 AM to 4:00 PM",
-                            "Saturdays": "10:00 AM to 12:00 PM",
-                          },
-                        ),
-                        SizedBox(height: height * 0.0197),
-                        const _ContactCards(
-                          heading: "School Administration",
-                          subheading: "Principal",
-                          details: {
-                            "Name": "Mr. Rakesh Mehra",
-                            "Contact Number": "+91 1234567890",
-                            "Email": "principal@gmail.com",
-                          },
-                        ),
-                        SizedBox(height: height * 0.0172),
-                        const _ContactCards(
-                          subheading: "Vice Principal",
-                          details: {
-                            "Name": "Mrs. Swati Khanna",
-                            "Contact Number": "+91 1234567890",
-                            "Email": "kavita.sharma@gmail.com",
-                          },
-                        ),
-                        SizedBox(height: height * 0.0197),
-                        const _ContactCards(
-                          heading: "Counselor Contact",
-                          details: {
-                            "Name": "Mrs. Neha Arora",
-                            "Contact Number": "+91 1234567890",
-                            "Email": "neha.arora@gmail.com",
-                          },
-                        ),
-                        SizedBox(height: height * 0.0197),
-                        const _ContactCards(
-                          heading: "Emergency Contact",
-                          subheading: "Medical Assistance (School Nurse)",
-                          details: {
-                            "Name": "Mrs. Kavita Das",
-                            "Contact Number": "+91 1234567890",
-                            "Availability": "During School hours",
-                          },
-                        ),
-                        SizedBox(height: height * 0.0197),
-
+                      const _ContactCards(
+                        heading: "Class Teacher Details",
+                        details: {
+                          "Name": "Mrs. Kavita Sharma",
+                          "Designation": "Class 12th A Teacher",
+                          "Subject": "Mathematics",
+                          "Contact Number": "+91 1234567890",
+                          "Email": "kavita.sharma@gmail.com",
+                        },
+                        availability: {
+                          "Weekdays": "9:00 AM to 4:00 PM",
+                          "Saturdays": "10:00 AM to 12:00 PM",
+                        },
+                      ),
+                      SizedBox(height: height * 0.0197),
+                      const _ContactCards(
+                        heading: "School Administration",
+                        subheading: "Principal",
+                        details: {
+                          "Name": "Mr. Rakesh Mehra",
+                          "Contact Number": "+91 1234567890",
+                          "Email": "principal@gmail.com",
+                        },
+                      ),
+                      SizedBox(height: height * 0.0172),
+                      const _ContactCards(
+                        subheading: "Vice Principal",
+                        details: {
+                          "Name": "Mrs. Swati Khanna",
+                          "Contact Number": "+91 1234567890",
+                          "Email": "kavita.sharma@gmail.com",
+                        },
+                      ),
+                      SizedBox(height: height * 0.0197),
+                      const _ContactCards(
+                        heading: "Counselor Contact",
+                        details: {
+                          "Name": "Mrs. Neha Arora",
+                          "Contact Number": "+91 1234567890",
+                          "Email": "neha.arora@gmail.com",
+                        },
+                      ),
+                      SizedBox(height: height * 0.0197),
+                      const _ContactCards(
+                        heading: "Emergency Contact",
+                        subheading: "Medical Assistance (School Nurse)",
+                        details: {
+                          "Name": "Mrs. Kavita Das",
+                          "Contact Number": "+91 1234567890",
+                          "Availability": "During School hours",
+                        },
+                      ),
+                      SizedBox(height: height * 0.0197),
 
 
-                      ],
-                    ),
+
+                    ],
                   ),
                 ),
               ),
             ),
-            SizedBox(width: width*0.004,),
-            Container(
-              height: height,
-              width: width*0.24,
-              decoration: BoxDecoration(
-                color: colorWhite,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: width,
-                    decoration: BoxDecoration(
-                      color: colorWhite,
-                      borderRadius: BorderRadius.circular(width*0.008),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SizedBox(height: height * 0.023),
-                        WantText(text: "Help Desk", fontSize: width*0.0125, fontWeight: FontWeight.w700, textColor: colorBlack),
-                        SizedBox(height: height * 0.023),
-                        Container(
-                          width: double.infinity,
-                          padding: EdgeInsets.all(width*0.008),
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Color.fromRGBO(34, 197, 94, 0.1), Color.fromRGBO(34, 197, 94, 0.66)],
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                            ),
-                            border: Border(
-                              left: BorderSide(color: Color.fromRGBO(34, 197, 94, 1), width: 4),
-                            ),
+          ),
+          SizedBox(width: width*0.004,),
+          Container(
+            height: height,
+            width: width*0.24,
+            decoration: BoxDecoration(
+              color: colorWhite,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: width,
+                  decoration: BoxDecoration(
+                    color: colorWhite,
+                    borderRadius: BorderRadius.circular(width*0.008),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(height: height * 0.023),
+                      WantText(text: "Help Desk", fontSize: width*0.0125, fontWeight: FontWeight.w700, textColor: colorBlack),
+                      SizedBox(height: height * 0.023),
+                      Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(width*0.008),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color.fromRGBO(34, 197, 94, 0.1), Color.fromRGBO(34, 197, 94, 0.66)],
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: WantText(
-                                      text: "Name: ",
-                                      fontSize: width * 0.0097,
-                                      fontWeight: FontWeight.w500,
-                                      textColor: colorDarkGreyText,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: WantText(
-                                      text: "Mrs. Neha Arora",
-                                      fontSize: width * 0.0097,
-                                      fontWeight: FontWeight.w600,
-                                      textColor: colorBlack,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: height * 0.005),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: WantText(
-                                      text: "Contact Number:",
-                                      fontSize: width * 0.0097,
-                                      fontWeight: FontWeight.w500,
-                                      textColor: colorDarkGreyText,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: WantText(
-                                      text: "+91 1234567890",
-                                      fontSize: width * 0.0097,
-                                      fontWeight: FontWeight.w600,
-                                      textColor: colorBlack,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: height * 0.005),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: WantText(
-                                      text: "Email:",
-                                      fontSize: width * 0.0097,
-                                      fontWeight: FontWeight.w500,
-                                      textColor: colorDarkGreyText,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: WantText(
-                                      text: "reception@school.edu",
-                                      fontSize: width * 0.0097,
-                                      fontWeight: FontWeight.w600,
-                                      textColor: colorBlack,
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-
-                            ],
+                          border: Border(
+                            left: BorderSide(color: Color.fromRGBO(34, 197, 94, 1), width: 4),
                           ),
                         ),
-                        SizedBox(height: height * 0.02),
-
-                        Container(
-                          width: width,
-                          padding: EdgeInsets.all(width * 0.008),
-                          decoration: BoxDecoration(
-                            color: colorMainTheme,
-                            borderRadius: BorderRadius.circular(width * 0.008),
-                          ),
-                          child: Center(
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
                               children: [
-                                Icon(
-                                  Icons.call,
-                                  color: colorWhite,
-                                  size: width * 0.01,
+                                Expanded(
+                                  child: WantText(
+                                    text: "Name: ",
+                                    fontSize: width * 0.0097,
+                                    fontWeight: FontWeight.w500,
+                                    textColor: colorDarkGreyText,
+                                  ),
                                 ),
-                                SizedBox(width: width * 0.01026),
-                                Text(
-                                  'Call Help Desk',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: width * 0.011,
-                                    height: 1.25,
+                                Expanded(
+                                  flex: 1,
+                                  child: WantText(
+                                    text: "Mrs. Neha Arora",
+                                    fontSize: width * 0.0097,
                                     fontWeight: FontWeight.w600,
-                                    color: colorWhite,
+                                    textColor: colorBlack,
                                   ),
                                 ),
                               ],
                             ),
+                            SizedBox(height: height * 0.005),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: WantText(
+                                    text: "Contact Number:",
+                                    fontSize: width * 0.0097,
+                                    fontWeight: FontWeight.w500,
+                                    textColor: colorDarkGreyText,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: WantText(
+                                    text: "+91 1234567890",
+                                    fontSize: width * 0.0097,
+                                    fontWeight: FontWeight.w600,
+                                    textColor: colorBlack,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: height * 0.005),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: WantText(
+                                    text: "Email:",
+                                    fontSize: width * 0.0097,
+                                    fontWeight: FontWeight.w500,
+                                    textColor: colorDarkGreyText,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: WantText(
+                                    text: "reception@school.edu",
+                                    fontSize: width * 0.0097,
+                                    fontWeight: FontWeight.w600,
+                                    textColor: colorBlack,
+                                  ),
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: height * 0.02),
+
+                      Container(
+                        width: width,
+                        padding: EdgeInsets.all(width * 0.008),
+                        decoration: BoxDecoration(
+                          color: colorMainTheme,
+                          borderRadius: BorderRadius.circular(width * 0.008),
+                        ),
+                        child: Center(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.call,
+                                color: colorWhite,
+                                size: width * 0.01,
+                              ),
+                              SizedBox(width: width * 0.01026),
+                              Text(
+                                'Call Help Desk',
+                                style: GoogleFonts.poppins(
+                                  fontSize: width * 0.011,
+                                  height: 1.25,
+                                  fontWeight: FontWeight.w600,
+                                  color: colorWhite,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
+                      ),
 
 
 
 
-                      ],
-                    ),
+                    ],
                   ),
+                ),
 
 
 
-                ],
-              ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

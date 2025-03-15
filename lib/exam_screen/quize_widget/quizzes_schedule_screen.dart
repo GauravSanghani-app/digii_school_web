@@ -221,158 +221,156 @@ class _QuizzesScheduleScreenState extends State<QuizzesScheduleScreen> {
       backgroundColor: colorWhite,
 
 
-      body: Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width*0.011),
-              child: Container(
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width*0.011),
+            child: Container(
 
-                width: width*0.665,
-                decoration: BoxDecoration(
-                  color: colorBox,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+              width: width*0.665,
+              decoration: BoxDecoration(
+                color: colorBox,
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
 
-                      Container(
-                        width: width,
-                        padding: EdgeInsets.all(width *0.005),
-                        decoration: BoxDecoration(
-                          color: colorHeaderCon,
-                          borderRadius: BorderRadius.circular(width*0.022),
-                        ),
-                        child:Row(
-                          children: [
-                            GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
-                            SizedBox(width: width*0.27,),
-                            WantText(
-                                text: "Quizzes Schedule",
-                                fontSize: width * 0.0166,
-                                fontWeight: FontWeight.w700,
-                                textColor: colorBlack),
-                          ],
-                        ) ,
+                    Container(
+                      width: width,
+                      padding: EdgeInsets.all(width *0.005),
+                      decoration: BoxDecoration(
+                        color: colorHeaderCon,
+                        borderRadius: BorderRadius.circular(width*0.022),
                       ),
-
-                      SizedBox(height: height * 0.02),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                      child:Row(
                         children: [
-
-                          SizedBox(
-                            width: width*0.56,
-                            height: height * 0.05,
-                            child: TextFormField(
-                              decoration: InputDecoration(
-
-                                prefixIcon:  Padding(
-                                  padding:EdgeInsets.all(11.0),
-                                  child: Image.asset("assets/images/search.png",width: width*0.0097,height: width*0.0097,),
-                                ),
-
-                                hintText: "Search Quiz",
-                                hintStyle: TextStyle(
-                                    color: colorDarkGreyText,
-                                    fontSize: width * 0.0097,
-                                    fontWeight: FontWeight.w400
-                                ),
-                                fillColor: colorWhite,
-                                filled: true,
-                                contentPadding: EdgeInsets.all(0),
-                                enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(width * 0.5),
-                                    borderSide: BorderSide(color: colorWhite)),
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(width * 0.5),
-                                    borderSide: BorderSide(color: colorWhite)),
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: width * 0.015),
                           GestureDetector(
-                            onTap: () => showFilterDialog(context),
-                            child: Container(
-                              padding: EdgeInsets.all(width * 0.007),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(width * 0.0097),
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(Icons.arrow_back_ios,color: colorBlack,size: height*0.026)),
+                          SizedBox(width: width*0.27,),
+                          WantText(
+                              text: "Quizzes Schedule",
+                              fontSize: width * 0.0166,
+                              fontWeight: FontWeight.w700,
+                              textColor: colorBlack),
+                        ],
+                      ) ,
+                    ),
+
+                    SizedBox(height: height * 0.02),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+
+                        SizedBox(
+                          width: width*0.56,
+                          height: height * 0.05,
+                          child: TextFormField(
+                            decoration: InputDecoration(
+
+                              prefixIcon:  Padding(
+                                padding:EdgeInsets.all(11.0),
+                                child: Image.asset("assets/images/search.png",width: width*0.0097,height: width*0.0097,),
                               ),
-                              child: Row(
-                                children: [
-                                  Image.asset("assets/icons/filtericon.png",
-                                      width: width * 0.015),
-                                  SizedBox(width: width * 0.015),
-                                  WantText(
-                                    fontFamily: "Roboto",
-                                    text: 'Filter',
-                                    fontSize: width * 0.0097,
-                                    fontWeight: FontWeight.w600,
-                                    textColor: colorMainTheme,
-                                  ),
-                                ],
+
+                              hintText: "Search Quiz",
+                              hintStyle: TextStyle(
+                                  color: colorDarkGreyText,
+                                  fontSize: width * 0.0097,
+                                  fontWeight: FontWeight.w400
                               ),
+                              fillColor: colorWhite,
+                              filled: true,
+                              contentPadding: EdgeInsets.all(0),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(width * 0.5),
+                                  borderSide: BorderSide(color: colorWhite)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(width * 0.5),
+                                  borderSide: BorderSide(color: colorWhite)),
                             ),
                           ),
-                        ],
-                      ),
-                      SizedBox(height: height * 0.02),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          if (selectedSubjects.isEmpty)
-                            WantText(
-                              fontFamily: "Roboto",
-                              text: 'Ongoing Quizzes',
-                              fontSize: width * 0.0125,
-                              fontWeight: FontWeight.w500,
-                              textColor: colorBlack,
+                        ),
+                        SizedBox(width: width * 0.015),
+                        GestureDetector(
+                          onTap: () => showFilterDialog(context),
+                          child: Container(
+                            padding: EdgeInsets.all(width * 0.007),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(width * 0.0097),
                             ),
-                          SizedBox(height: height*0.02),
-                          quizList(filteredQuizzes.where((q) => !q.containsKey("isUpcoming") && !q.containsKey("isCompleted")).toList()),
-                          if (selectedSubjects.isEmpty)
-                            WantText(
-                              fontFamily: "Roboto",
-                              text: 'Upcoming Quizzes',
-                              fontSize: width * 0.0125,
-                              fontWeight: FontWeight.w500,
-                              textColor: colorBlack,
+                            child: Row(
+                              children: [
+                                Image.asset("assets/icons/filtericon.png",
+                                    width: width * 0.015),
+                                SizedBox(width: width * 0.015),
+                                WantText(
+                                  fontFamily: "Roboto",
+                                  text: 'Filter',
+                                  fontSize: width * 0.0097,
+                                  fontWeight: FontWeight.w600,
+                                  textColor: colorMainTheme,
+                                ),
+                              ],
                             ),
-                          SizedBox(height: height*0.02),
-                          quizList(filteredQuizzes.where((q) => q.containsKey("isUpcoming")).toList()),
-                          if (selectedSubjects.isEmpty)
-                            WantText(
-                              fontFamily: "Roboto",
-                              text: 'Completed Quizzes',
-                              fontSize: width * 0.0125,
-                              fontWeight: FontWeight.w500,
-                              textColor: colorBlack,
-                            ),
-                          SizedBox(height: height*0.02),
-                          quizList(filteredQuizzes.where((q) => q.containsKey("isCompleted")).toList()),
-                        ],
-                      ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: height * 0.02),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (selectedSubjects.isEmpty)
+                          WantText(
+                            fontFamily: "Roboto",
+                            text: 'Ongoing Quizzes',
+                            fontSize: width * 0.0125,
+                            fontWeight: FontWeight.w500,
+                            textColor: colorBlack,
+                          ),
+                        SizedBox(height: height*0.02),
+                        quizList(filteredQuizzes.where((q) => !q.containsKey("isUpcoming") && !q.containsKey("isCompleted")).toList()),
+                        if (selectedSubjects.isEmpty)
+                          WantText(
+                            fontFamily: "Roboto",
+                            text: 'Upcoming Quizzes',
+                            fontSize: width * 0.0125,
+                            fontWeight: FontWeight.w500,
+                            textColor: colorBlack,
+                          ),
+                        SizedBox(height: height*0.02),
+                        quizList(filteredQuizzes.where((q) => q.containsKey("isUpcoming")).toList()),
+                        if (selectedSubjects.isEmpty)
+                          WantText(
+                            fontFamily: "Roboto",
+                            text: 'Completed Quizzes',
+                            fontSize: width * 0.0125,
+                            fontWeight: FontWeight.w500,
+                            textColor: colorBlack,
+                          ),
+                        SizedBox(height: height*0.02),
+                        quizList(filteredQuizzes.where((q) => q.containsKey("isCompleted")).toList()),
+                      ],
+                    ),
 
 
 
-                    ],
-                  ),
+                  ],
                 ),
               ),
             ),
-            SizedBox(width: width*0.004,),
-            RecentActivityWidget(),
-          ],
-        ),
+          ),
+          SizedBox(width: width*0.004,),
+          RecentActivityWidget(),
+        ],
       ),
     );
   }

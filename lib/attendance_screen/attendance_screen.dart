@@ -256,516 +256,514 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
       backgroundColor: colorWhite,
 
 
-      body: Expanded(
-        child: Row(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(width*0.011),
-              child: Container(
+      body: Row(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(width*0.011),
+            child: Container(
 
-                width: width*0.665,
-                decoration: BoxDecoration(
-                  color: colorBox,
-                ),
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+              width: width*0.665,
+              decoration: BoxDecoration(
+                color: colorBox,
+              ),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
 
-                        WantText(
-                            text: "March 2025 Attendance",
-                            fontSize: width * 0.0125,
-                            fontWeight: FontWeight.w700,
-                            textColor: colorBlack.withOpacity(0.7)),
-                        SizedBox(height: height * 0.02),
+                      WantText(
+                          text: "March 2025 Attendance",
+                          fontSize: width * 0.0125,
+                          fontWeight: FontWeight.w700,
+                          textColor: colorBlack.withOpacity(0.7)),
+                      SizedBox(height: height * 0.02),
 
-                        Center(
-                          child: Container(
-                            width: width*0.3,
+                      Center(
+                        child: Container(
+                          width: width*0.3,
 
-                            padding: EdgeInsets.symmetric(
-                                horizontal: width * 0.01, vertical: width * 0.01),
-                            decoration: BoxDecoration(
-                              color: colorWhite,
-                              borderRadius: BorderRadius.circular(width*0.0125),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  // mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      width: width * 0.138,
-                                      height: width * 0.148,
-                                      child: PieChart(
-                                        // dataMap: {
-                                        //   "Present": 5,
-                                        //   "Absent": 3,
-                                        //   "Holidays": 2,
-                                        //   "Leave": 2,
-                                        // },
-                                        dataMap: dataMap,
-
-                                        animationDuration:
-                                        const Duration(milliseconds: 800),
-                                        chartRadius: width * 0.0138,
-                                        chartLegendSpacing: 32,
-                                        colorList: [
-                                          colorGreenCalendar,
-                                          colorRedCalendar,
-                                          colorDarkGreyText,
-                                          colorYellow,
-                                        ],
-                                        chartType: ChartType.ring,
-                                        ringStrokeWidth: width * 0.11,
-
-                                        // centerText: "85%",
-                                        chartValuesOptions: const ChartValuesOptions(
-                                          showChartValueBackground: false,
-                                          showChartValuesInPercentage: true,
-                                          showChartValues: true,
-                                          showChartValuesOutside: false,
-                                          decimalPlaces: 0,
-                                        ),
-                                        legendOptions: const LegendOptions(
-                                          showLegends: false,
-
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(width: width * 0.02),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        // _buildLegend(
-                                        //     "Present", Colors.green, "$present days"),
-                                        // _buildLegend(
-                                        //     "Absent", Colors.red, "$absent days"),
-                                        // _buildLegend(
-                                        //     "Holidays", Colors.grey, "$holidays days"),
-                                        // _buildLegend(
-                                        //     "Leave", Colors.yellow, "$leave days"),
-                                        _buildLegend("Present", colorGreenCalendar,
-                                            "22 days"),
-                                        _buildLegend(
-                                            "Absent", colorRedCalendar, "3 days"),
-                                        _buildLegend("Holidays", colorDarkGreyText,
-                                            "4 days"),
-                                        _buildLegend(
-                                            "Leave", colorYellow, "0 days"),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(height: height * 0.023),
-                        WantText(text: "Apply for Leave", fontSize: width*0.0125, fontWeight: FontWeight.w700, textColor: colorBlack),
-                        SizedBox(height: height * 0.02),
-
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            GestureDetector(
-                              onTap: () =>
-                                  _selectDate(context, _fromDateController),
-                              child: AbsorbPointer(
-                                child: CustomTextFormField(
-                                    color: colorWhite,
-                                    suffixIcon: Icon(Icons.calendar_today),
-                                    readOnly: true,
-                                    labelText: 'From Date',
-                                    hintText: 'mm/dd/yyyy',
-                                    controller: _fromDateController),
-                              ),
-                            ),
-                            SizedBox(height: height * 0.02),
-                            GestureDetector(
-                              onTap: () =>
-                                  _selectDate(context, _toDateController),
-                              child: AbsorbPointer(
-                                child: CustomTextFormField(color: colorWhite,
-                                    suffixIcon: Icon(Icons.calendar_today),
-                                    readOnly: true,
-                                    labelText: 'To Date',
-                                    hintText: 'mm/dd/yyyy',
-                                    controller: _toDateController),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: height * 0.02),
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: height * 0.01,
-                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: width * 0.01, vertical: width * 0.01),
                           decoration: BoxDecoration(
-                            // color: colorCustomButtonLabelWhite,
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(width * 0.0083)),
-                          ),
-                          child: CustomTextFormField(
-                            labelText: "Reason",
-                            hintText: "Enter reason for leave...",
-                            controller: _resonController,
                             color: colorWhite,
-                            maxLines: 4,
-                          ),
-                        ),
-                        SizedBox(height: height * 0.02),
-                        WantText(
-                            text: "Parent's Signature",
-                            fontSize: width * 0.011,
-                            fontWeight: FontWeight.w600,
-                            textColor: colorBlack.withOpacity(0.7)),
-                        SizedBox(height: height * 0.02),
-                        Container(
-                          height: height * 0.13,
-                          padding: EdgeInsets.all(height * 0.01),
-                          decoration: BoxDecoration(
-                            color: colorCustomButtonLabelWhite,
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(width * 0.0083)),
+                            borderRadius: BorderRadius.circular(width*0.0125),
                           ),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              if (_controller.isEmpty)
-                                Row(
-                                  children: [
-                                    WantText(
-                                        text: "Sign here...",
-                                        fontSize: width * 0.0097,
-                                        fontWeight: FontWeight.w400,
-                                        textColor: colorDarkGreyText),
-                                  ],
-                                ),
-                              // Show hint if signature is empty
+                              Row(
+                                // mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width: width * 0.138,
+                                    height: width * 0.148,
+                                    child: PieChart(
+                                      // dataMap: {
+                                      //   "Present": 5,
+                                      //   "Absent": 3,
+                                      //   "Holidays": 2,
+                                      //   "Leave": 2,
+                                      // },
+                                      dataMap: dataMap,
 
-                              Expanded(
-                                child: GestureDetector(
-                                  onPanStart: (_) {
-                                    setState(
-                                            () {}); // Update UI when user starts signing
-                                  },
-                                  child: Signature(
-                                    controller: _controller,
-                                    backgroundColor: Colors.transparent,
-                                  ),
-                                ),
-                              ),
-                              if (_controller.isNotEmpty)
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        _controller.clear();
-                                      },
-                                      child: WantText(
-                                          fontFamily: "Roboto",
-                                          text: "Clear",
-                                          fontSize: width * 0.035,
-                                          fontWeight: FontWeight.w400,
-                                          textColor: colorRedText),
+                                      animationDuration:
+                                      const Duration(milliseconds: 800),
+                                      chartRadius: width * 0.0138,
+                                      chartLegendSpacing: 32,
+                                      colorList: [
+                                        colorGreenCalendar,
+                                        colorRedCalendar,
+                                        colorDarkGreyText,
+                                        colorYellow,
+                                      ],
+                                      chartType: ChartType.ring,
+                                      ringStrokeWidth: width * 0.11,
+
+                                      // centerText: "85%",
+                                      chartValuesOptions: const ChartValuesOptions(
+                                        showChartValueBackground: false,
+                                        showChartValuesInPercentage: true,
+                                        showChartValues: true,
+                                        showChartValuesOutside: false,
+                                        decimalPlaces: 0,
+                                      ),
+                                      legendOptions: const LegendOptions(
+                                        showLegends: false,
+
+                                      ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                  SizedBox(width: width * 0.02),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      // _buildLegend(
+                                      //     "Present", Colors.green, "$present days"),
+                                      // _buildLegend(
+                                      //     "Absent", Colors.red, "$absent days"),
+                                      // _buildLegend(
+                                      //     "Holidays", Colors.grey, "$holidays days"),
+                                      // _buildLegend(
+                                      //     "Leave", Colors.yellow, "$leave days"),
+                                      _buildLegend("Present", colorGreenCalendar,
+                                          "22 days"),
+                                      _buildLegend(
+                                          "Absent", colorRedCalendar, "3 days"),
+                                      _buildLegend("Holidays", colorDarkGreyText,
+                                          "4 days"),
+                                      _buildLegend(
+                                          "Leave", colorYellow, "0 days"),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
                         ),
-                        SizedBox(height: height * 0.03),
-                        CustomButton(
-                            Width: width,
-                            onTap: () {},
-                            label: "Submit Application"),
-                        SizedBox(
-                          height: height * 0.023,
+                      ),
+
+                      SizedBox(height: height * 0.023),
+                      WantText(text: "Apply for Leave", fontSize: width*0.0125, fontWeight: FontWeight.w700, textColor: colorBlack),
+                      SizedBox(height: height * 0.02),
+
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          GestureDetector(
+                            onTap: () =>
+                                _selectDate(context, _fromDateController),
+                            child: AbsorbPointer(
+                              child: CustomTextFormField(
+                                  color: colorWhite,
+                                  suffixIcon: Icon(Icons.calendar_today),
+                                  readOnly: true,
+                                  labelText: 'From Date',
+                                  hintText: 'mm/dd/yyyy',
+                                  controller: _fromDateController),
+                            ),
+                          ),
+                          SizedBox(height: height * 0.02),
+                          GestureDetector(
+                            onTap: () =>
+                                _selectDate(context, _toDateController),
+                            child: AbsorbPointer(
+                              child: CustomTextFormField(color: colorWhite,
+                                  suffixIcon: Icon(Icons.calendar_today),
+                                  readOnly: true,
+                                  labelText: 'To Date',
+                                  hintText: 'mm/dd/yyyy',
+                                  controller: _toDateController),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: height * 0.02),
+                      Container(
+                        padding: EdgeInsets.only(
+                          top: height * 0.01,
                         ),
+                        decoration: BoxDecoration(
+                          // color: colorCustomButtonLabelWhite,
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(width * 0.0083)),
+                        ),
+                        child: CustomTextFormField(
+                          labelText: "Reason",
+                          hintText: "Enter reason for leave...",
+                          controller: _resonController,
+                          color: colorWhite,
+                          maxLines: 4,
+                        ),
+                      ),
+                      SizedBox(height: height * 0.02),
+                      WantText(
+                          text: "Parent's Signature",
+                          fontSize: width * 0.011,
+                          fontWeight: FontWeight.w600,
+                          textColor: colorBlack.withOpacity(0.7)),
+                      SizedBox(height: height * 0.02),
+                      Container(
+                        height: height * 0.13,
+                        padding: EdgeInsets.all(height * 0.01),
+                        decoration: BoxDecoration(
+                          color: colorCustomButtonLabelWhite,
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(width * 0.0083)),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            if (_controller.isEmpty)
+                              Row(
+                                children: [
+                                  WantText(
+                                      text: "Sign here...",
+                                      fontSize: width * 0.0097,
+                                      fontWeight: FontWeight.w400,
+                                      textColor: colorDarkGreyText),
+                                ],
+                              ),
+                            // Show hint if signature is empty
+
+                            Expanded(
+                              child: GestureDetector(
+                                onPanStart: (_) {
+                                  setState(
+                                          () {}); // Update UI when user starts signing
+                                },
+                                child: Signature(
+                                  controller: _controller,
+                                  backgroundColor: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            if (_controller.isNotEmpty)
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      _controller.clear();
+                                    },
+                                    child: WantText(
+                                        fontFamily: "Roboto",
+                                        text: "Clear",
+                                        fontSize: width * 0.035,
+                                        fontWeight: FontWeight.w400,
+                                        textColor: colorRedText),
+                                  ),
+                                ],
+                              ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: height * 0.03),
+                      CustomButton(
+                          Width: width,
+                          onTap: () {},
+                          label: "Submit Application"),
+                      SizedBox(
+                        height: height * 0.023,
+                      ),
 
 
 
 
-                      ],
-                    ),
+                    ],
                   ),
                 ),
               ),
             ),
-            SizedBox(width: width*0.004,),
-            Container(
-              height: height,
-              width: width*0.24,
-              decoration: BoxDecoration(
-                color: colorWhite,
-                borderRadius: BorderRadius.circular(width*0.008),
-              ),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: width * 0.01, vertical: width * 0.02),
-                      decoration: BoxDecoration(
-                        color: colorWhite,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: TableCalendar(
-                        firstDay: DateTime(2024, 1, 1),
-                        lastDay: DateTime(2025, 12, 31),
-                        focusedDay: DateTime(2025, 1, 1),
-                        onPageChanged: (focusedDay) {
-                          currentMonth = focusedDay;
-                          getDayCategoryCount(currentMonth.month);
-                        },
-                        headerStyle: HeaderStyle(
-                          formatButtonVisible: false,
-                          titleCentered: true,titleTextStyle: TextStyle(color: colorBlack,fontWeight: FontWeight.w400,fontSize: width*0.0097)
-                        ),
-                        availableGestures: AvailableGestures.horizontalSwipe,
-                        calendarBuilders: CalendarBuilders(
-                          defaultBuilder: (context, day, focusedDay) {
-                            if (day.isAfter(DateTime.now())) {
-                              return Center(
-                                  child: Text('${day.day}')); // Future dates
-                            }
-                
-                            final status = attendanceStatus[
-                            DateTime(day.year, day.month, day.day)];
-                            final color = getAttendanceColor(status);
-                            return Container(
-                              margin: const EdgeInsets.all(5),
-                              decoration: BoxDecoration(
-                                  color: color, shape: BoxShape.circle),
-                              child: Center(
-                                child: Text(
-                                  '${day.day}',
-                                  style: TextStyle(
-                                      color: color == Colors.transparent
-                                          ? colorBlack
-                                          : colorWhite,
-                                      fontSize: width*0.01
-                                  ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                        calendarStyle: const CalendarStyle(
-                          todayDecoration: BoxDecoration(
-                              shape: BoxShape.circle, color: colorMainTheme),
-                          outsideDaysVisible: false,
-                        ),
-                      ),
+          ),
+          SizedBox(width: width*0.004,),
+          Container(
+            height: height,
+            width: width*0.24,
+            decoration: BoxDecoration(
+              color: colorWhite,
+              borderRadius: BorderRadius.circular(width*0.008),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: width * 0.01, vertical: width * 0.02),
+                    decoration: BoxDecoration(
+                      color: colorWhite,
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                    SizedBox(height: height * 0.02),
-                    WantText(text: "List of leaves", fontSize: width*0.0125, fontWeight: FontWeight.w700, textColor: colorBlack),
-                    SizedBox(height: height * 0.02),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            showList = _leaveDetails.where((leave) => leave["status"] == "accepted").toList();
-                
-                            selectedIndex = 0;
-                            setState(() {});
-                          },
-                          child: Row(
-                            children: [
-                              ImageIcon(
-                                const AssetImage(
-                                    'assets/icons/check-circle.png'),
-                                size: width * 0.016,
-                                color: colorBrightGreenText,
-                              ),
-                              SizedBox(width: width * 0.01),
-                              WantText(
-                                text: 'Accepted',
-                                fontSize: width * 0.0083,
-                                fontWeight: FontWeight.w500,
-                                textColor: colorGreen,
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(width: width * 0.02),
-                        InkWell(
-                          onTap: () {
-                            showList = _leaveDetails.where((leave) => leave["status"] == "pending").toList();
-                
-                            selectedIndex = 1;
-                            setState(() {});
-                          },
-                          child: Row(
-                            children: [
-                              ImageIcon(
-                                const AssetImage(
-                                    'assets/icons/alert-circle.png'),
-                                size: width * 0.016,
-                                color: colorYellow,
-                              ),
-                              SizedBox(width: width * 0.01),
-                              WantText(
-                                text: 'Pending',
-                                fontSize: width * 0.0083,
-                                fontWeight: FontWeight.w500,
-                                textColor: colorDarkBlueText,
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(width: width * 0.02),
-                        InkWell(
-                          onTap: () {
-                            showList = _leaveDetails.where((leave) => leave["status"] == "rejected").toList();
-                
-                            selectedIndex = 2;
-                            setState(() {});
-                          },
-                          child: Row(
-                            children: [
-                              ImageIcon(
-                                const AssetImage(
-                                    'assets/icons/cross-circle.png'),
-                                size: width * 0.016,
-                                color: colorLightRed,
-                              ),
-                              SizedBox(width: width * 0.01),
-                              WantText(
-                                text: 'Rejected',
-                                fontSize: width * 0.0083,
-                                fontWeight: FontWeight.w500,
-                                textColor: colorMaroonText,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: showList.map(
-                            (leave) {
-                          return Padding(
-                            padding: EdgeInsets.only(
-                              top: height * 0.0172,
-                            ),
-                            child: Container(
-                              width: width,
-                              padding: EdgeInsets.all(width*0.011),
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [Color.fromRGBO(246, 173, 43, 0.3), Colors.white],
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
-                                ), // Rounded corners
-                                border: Border(
-                                  left: BorderSide(color: Color.fromRGBO(246, 173, 43, 0.66), width: 4),
+                    child: TableCalendar(
+                      firstDay: DateTime(2024, 1, 1),
+                      lastDay: DateTime(2025, 12, 31),
+                      focusedDay: DateTime(2025, 1, 1),
+                      onPageChanged: (focusedDay) {
+                        currentMonth = focusedDay;
+                        getDayCategoryCount(currentMonth.month);
+                      },
+                      headerStyle: HeaderStyle(
+                        formatButtonVisible: false,
+                        titleCentered: true,titleTextStyle: TextStyle(color: colorBlack,fontWeight: FontWeight.w400,fontSize: width*0.0097)
+                      ),
+                      availableGestures: AvailableGestures.horizontalSwipe,
+                      calendarBuilders: CalendarBuilders(
+                        defaultBuilder: (context, day, focusedDay) {
+                          if (day.isAfter(DateTime.now())) {
+                            return Center(
+                                child: Text('${day.day}')); // Future dates
+                          }
+
+                          final status = attendanceStatus[
+                          DateTime(day.year, day.month, day.day)];
+                          final color = getAttendanceColor(status);
+                          return Container(
+                            margin: const EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                                color: color, shape: BoxShape.circle),
+                            child: Center(
+                              child: Text(
+                                '${day.day}',
+                                style: TextStyle(
+                                    color: color == Colors.transparent
+                                        ? colorBlack
+                                        : colorWhite,
+                                    fontSize: width*0.01
                                 ),
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                // spacing: height * 0.01477,
-                                crossAxisAlignment:
-                                CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      bottom: height * 0.01477,
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment
-                                          .spaceBetween,
-                                      children: [
-                                        WantText(
-                                          text: leave["date"],
-                                          fontSize: width * 0.011,
-                                          fontWeight: FontWeight.w600,
-                                          textColor:
-                                          _getColorFromStatus(
-                                              leave["status"]),
-                                          fontFamily: 'poppins',
-                                        ),
-                                        if (leave["status"] ==
-                                            "accepted")
-                                          ImageIcon(
-                                            const AssetImage(
-                                                'assets/icons/check-circle.png'),
-                                            size: width * 0.016,
-                                            color:
-                                            colorBrightGreenText,
-                                          ),
-                                        if (leave["status"] ==
-                                            "pending")
-                                          ImageIcon(
-                                            const AssetImage(
-                                                'assets/icons/alert-circle.png'),
-                                            size: width * 0.016,
-                                            color: colorYellow,
-                                          ),
-                                        if (leave["status"] ==
-                                            "rejected")
-                                          ImageIcon(
-                                            const AssetImage(
-                                                'assets/icons/cross-circle.png'),
-                                            size: width * 0.016,
-                                            color: colorLightRed,
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                  WantText(
-                                    text: leave["reason"],
-                                    fontSize: width * 0.008,
-                                    fontWeight: FontWeight.w400,
-                                    textColor: colorBlack,
-                                  ),
-                                ],
                               ),
                             ),
                           );
                         },
-                      ).toList(),
+                      ),
+                      calendarStyle: const CalendarStyle(
+                        todayDecoration: BoxDecoration(
+                            shape: BoxShape.circle, color: colorMainTheme),
+                        outsideDaysVisible: false,
+                      ),
                     ),
-                    SizedBox(height: height * 0.023),
-                    WantText(
-                      text: "Instructions",
-                      fontSize: width * 0.0125,
+                  ),
+                  SizedBox(height: height * 0.02),
+                  WantText(text: "List of leaves", fontSize: width*0.0125, fontWeight: FontWeight.w700, textColor: colorBlack),
+                  SizedBox(height: height * 0.02),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          showList = _leaveDetails.where((leave) => leave["status"] == "accepted").toList();
+
+                          selectedIndex = 0;
+                          setState(() {});
+                        },
+                        child: Row(
+                          children: [
+                            ImageIcon(
+                              const AssetImage(
+                                  'assets/icons/check-circle.png'),
+                              size: width * 0.016,
+                              color: colorBrightGreenText,
+                            ),
+                            SizedBox(width: width * 0.01),
+                            WantText(
+                              text: 'Accepted',
+                              fontSize: width * 0.0083,
+                              fontWeight: FontWeight.w500,
+                              textColor: colorGreen,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: width * 0.02),
+                      InkWell(
+                        onTap: () {
+                          showList = _leaveDetails.where((leave) => leave["status"] == "pending").toList();
+
+                          selectedIndex = 1;
+                          setState(() {});
+                        },
+                        child: Row(
+                          children: [
+                            ImageIcon(
+                              const AssetImage(
+                                  'assets/icons/alert-circle.png'),
+                              size: width * 0.016,
+                              color: colorYellow,
+                            ),
+                            SizedBox(width: width * 0.01),
+                            WantText(
+                              text: 'Pending',
+                              fontSize: width * 0.0083,
+                              fontWeight: FontWeight.w500,
+                              textColor: colorDarkBlueText,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: width * 0.02),
+                      InkWell(
+                        onTap: () {
+                          showList = _leaveDetails.where((leave) => leave["status"] == "rejected").toList();
+
+                          selectedIndex = 2;
+                          setState(() {});
+                        },
+                        child: Row(
+                          children: [
+                            ImageIcon(
+                              const AssetImage(
+                                  'assets/icons/cross-circle.png'),
+                              size: width * 0.016,
+                              color: colorLightRed,
+                            ),
+                            SizedBox(width: width * 0.01),
+                            WantText(
+                              text: 'Rejected',
+                              fontSize: width * 0.0083,
+                              fontWeight: FontWeight.w500,
+                              textColor: colorMaroonText,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: showList.map(
+                          (leave) {
+                        return Padding(
+                          padding: EdgeInsets.only(
+                            top: height * 0.0172,
+                          ),
+                          child: Container(
+                            width: width,
+                            padding: EdgeInsets.all(width*0.011),
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [Color.fromRGBO(246, 173, 43, 0.3), Colors.white],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ), // Rounded corners
+                              border: Border(
+                                left: BorderSide(color: Color.fromRGBO(246, 173, 43, 0.66), width: 4),
+                              ),
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              // spacing: height * 0.01477,
+                              crossAxisAlignment:
+                              CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    bottom: height * 0.01477,
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                    MainAxisAlignment
+                                        .spaceBetween,
+                                    children: [
+                                      WantText(
+                                        text: leave["date"],
+                                        fontSize: width * 0.011,
+                                        fontWeight: FontWeight.w600,
+                                        textColor:
+                                        _getColorFromStatus(
+                                            leave["status"]),
+                                        fontFamily: 'poppins',
+                                      ),
+                                      if (leave["status"] ==
+                                          "accepted")
+                                        ImageIcon(
+                                          const AssetImage(
+                                              'assets/icons/check-circle.png'),
+                                          size: width * 0.016,
+                                          color:
+                                          colorBrightGreenText,
+                                        ),
+                                      if (leave["status"] ==
+                                          "pending")
+                                        ImageIcon(
+                                          const AssetImage(
+                                              'assets/icons/alert-circle.png'),
+                                          size: width * 0.016,
+                                          color: colorYellow,
+                                        ),
+                                      if (leave["status"] ==
+                                          "rejected")
+                                        ImageIcon(
+                                          const AssetImage(
+                                              'assets/icons/cross-circle.png'),
+                                          size: width * 0.016,
+                                          color: colorLightRed,
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                                WantText(
+                                  text: leave["reason"],
+                                  fontSize: width * 0.008,
+                                  fontWeight: FontWeight.w400,
+                                  textColor: colorBlack,
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ).toList(),
+                  ),
+                  SizedBox(height: height * 0.023),
+                  WantText(
+                    text: "Instructions",
+                    fontSize: width * 0.0125,
+                    fontWeight: FontWeight.w500,
+                    textColor: colorBlack,
+                  ),
+                  SizedBox(height: height * 0.02),
+                  WantText(
+                      textOverflow: TextOverflow.fade,
+                      fontFamily: "Roboto",
+                      text:
+                      'If leave application is rejected, please contact the class teacher.',
+                      fontSize: width * 0.0097,
                       fontWeight: FontWeight.w500,
-                      textColor: colorBlack,
-                    ),
-                    SizedBox(height: height * 0.02),
-                    WantText(
-                        textOverflow: TextOverflow.fade,
-                        fontFamily: "Roboto",
-                        text:
-                        'If leave application is rejected, please contact the class teacher.',
-                        fontSize: width * 0.0097,
-                        fontWeight: FontWeight.w500,
-                        textColor: colorDarkGreyText),
-                    SizedBox(height: height * 0.0246),
-                
-                
-                
-                
-                
-                
-                  ],
-                ),
+                      textColor: colorDarkGreyText),
+                  SizedBox(height: height * 0.0246),
+
+
+
+
+
+
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
