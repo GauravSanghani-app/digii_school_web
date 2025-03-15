@@ -1,0 +1,56 @@
+
+import 'package:digi_school/utils/theam_manager.dart';
+import 'package:digi_school/utils/want_text.dart';
+import 'package:flutter/material.dart';
+
+
+class CustomButton extends StatelessWidget {
+  const CustomButton(
+      {Key? key,
+      required this.Width,
+      required this.onTap,
+      this.isSelected = false,
+      this.buttonClick = false,
+      this.isBoarderRadiusLess = false,
+      required this.label})
+      : super(key: key);
+
+  final double Width;
+  final Function()? onTap;
+  final String label;
+  final bool isSelected;
+  final bool buttonClick;
+  final bool isBoarderRadiusLess;
+
+  @override
+  Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: Width,
+        padding: EdgeInsets.symmetric(vertical: height * 0.013),
+        decoration: BoxDecoration(
+          border: Border.all(
+              color: isSelected
+                  ? Colors.grey.withOpacity(0.4)
+                  : colorMainTheme),
+          color: isSelected
+              ? Colors.grey.withOpacity(0.4)
+              : buttonClick
+                  ? colorWhite
+                  : colorMainTheme,
+          borderRadius: BorderRadius.circular(
+              isBoarderRadiusLess ? width * 0.0083 : width * 0.0083),
+        ),
+        child: Center(
+            child: WantText(
+                text: label,
+                fontSize: width * 0.011,
+                fontWeight: FontWeight.w500,
+                textColor: colorCustomButtonLabelWhite)),
+      ),
+    );
+  }
+}
