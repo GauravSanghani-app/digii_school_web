@@ -21,12 +21,15 @@ class CustomTextFormField extends StatelessWidget {
   final double? titleFontSize;
   final FontWeight? titleFontWeight;
   final int maxLines;
+  final bool showBorder;
+
   final Color color;
 
   const CustomTextFormField({
     super.key,
     this.prefixIcon,
     this.labelText,
+    this.showBorder = true,
     required this.hintText,
     required this.controller,
     this.obscureText = false,
@@ -81,20 +84,26 @@ class CustomTextFormField extends StatelessWidget {
               hintStyle: GoogleFonts.roboto(
                 color: colorHintText,
                 fontSize: width * 0.0097,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w600,
                 height: 1.5,
               ),
               suffixIcon: suffixIcon,
-              border: const OutlineInputBorder(
-                borderSide: BorderSide(color: colorTanBackground),
+              border: OutlineInputBorder(
+                borderSide: showBorder
+                    ? const BorderSide(color: colorTanBackground)
+                    : BorderSide(color: Colors.transparent),
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
-              focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: colorTanBackground),
+              focusedBorder: OutlineInputBorder(
+                borderSide: showBorder
+                    ? const BorderSide(color: colorTanBackground)
+                    : BorderSide(color: Colors.transparent),
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
-              enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: colorTanBackground),
+              enabledBorder: OutlineInputBorder(
+                borderSide: showBorder
+                    ? const BorderSide(color: colorTanBackground)
+                    : BorderSide(color: Colors.transparent),
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
               // constraints: const BoxConstraints(maxHeight: 48),

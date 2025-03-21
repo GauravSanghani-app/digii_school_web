@@ -34,7 +34,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
               ),
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.008),
+                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

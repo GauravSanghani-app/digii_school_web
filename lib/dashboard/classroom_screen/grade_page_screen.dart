@@ -1,6 +1,4 @@
 
-import 'package:digi_school/exam_screen/weekly_test_widget/mathematics_screen.dart';
-import 'package:digi_school/exam_screen/weekly_test_widget/reminders_widget.dart';
 import 'package:digi_school/utils/custom_button.dart';
 
 import 'package:flutter/cupertino.dart';

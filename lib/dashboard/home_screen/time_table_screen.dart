@@ -280,7 +280,7 @@ class _TimeTableScreenState extends State<TimeTableScreen> {
               children: [
                 Container(
                   width: 8,
-                  height: 145, // Adjust based on schedule length
+                  height: 90,
                   decoration: BoxDecoration(
                     color: Color(int.parse('0xFF${schedule['color'] ?? 'CCCCCC'}')), // Default grey
                     borderRadius: BorderRadius.only(

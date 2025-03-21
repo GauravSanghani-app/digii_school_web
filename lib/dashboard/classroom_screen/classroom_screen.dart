@@ -218,7 +218,7 @@ class _DashClassroomScreenState extends State<DashClassroomScreen> {
               ),
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.009),
+                  padding: EdgeInsets.symmetric(vertical: width*0.011,horizontal: height*0.016),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

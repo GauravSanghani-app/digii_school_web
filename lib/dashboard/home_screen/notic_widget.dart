@@ -18,7 +18,7 @@ class NoticWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(height: height * 0.023),
-          WantText(text: "Notic", fontSize: width*0.0125, fontWeight: FontWeight.w700, textColor: colorBlack),
+          WantText(text: "Notice", fontSize: width*0.0125, fontWeight: FontWeight.w700, textColor: colorBlack),
           SizedBox(height: height * 0.023),
           Container(
             width: double.infinity,

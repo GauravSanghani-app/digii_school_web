@@ -1,8 +1,6 @@
 
 import 'package:digi_school/dashboard/navigation_page/add_post_screen.dart';
-import 'package:digi_school/exam_screen/weekly_test_widget/mathematics_screen.dart';
-import 'package:digi_school/exam_screen/weekly_test_widget/reminders_widget.dart';
-import 'package:digi_school/home_screen/home_announcements_widget.dart';
+import 'package:digi_school/student_portal/home_screen/home_announcements_widget.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

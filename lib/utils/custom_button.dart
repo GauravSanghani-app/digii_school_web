@@ -1,26 +1,35 @@
-
 import 'package:digi_school/utils/theam_manager.dart';
 import 'package:digi_school/utils/want_text.dart';
 import 'package:flutter/material.dart';
 
-
 class CustomButton extends StatelessWidget {
   const CustomButton(
       {Key? key,
-      required this.Width,
-      required this.onTap,
-      this.isSelected = false,
-      this.buttonClick = false,
-      this.isBoarderRadiusLess = false,
-      required this.label})
+
+        required this.Width,
+        required this.onTap,
+        this.isSelected = false,
+        this.buttonClick = false,
+        this.isBoarderRadiusLess = false,
+        this.labelWidget,
+        this.paddingVertical,
+        this.fontSize,
+
+        this.label,
+      })
       : super(key: key);
 
   final double Width;
   final Function()? onTap;
-  final String label;
+  final String? label;
   final bool isSelected;
   final bool buttonClick;
   final bool isBoarderRadiusLess;
+  final Widget? labelWidget;
+  final double? paddingVertical;
+  final double? fontSize;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +39,7 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: Width,
-        padding: EdgeInsets.symmetric(vertical: height * 0.013),
+        padding: EdgeInsets.symmetric(vertical: paddingVertical ?? height * 0.011),
         decoration: BoxDecoration(
           border: Border.all(
               color: isSelected
@@ -39,17 +48,20 @@ class CustomButton extends StatelessWidget {
           color: isSelected
               ? Colors.grey.withOpacity(0.4)
               : buttonClick
-                  ? colorWhite
-                  : colorMainTheme,
+              ? colorWhite
+              : colorMainTheme,
           borderRadius: BorderRadius.circular(
               isBoarderRadiusLess ? width * 0.0083 : width * 0.0083),
         ),
         child: Center(
-            child: WantText(
-                text: label,
-                fontSize: width * 0.011,
+          child: labelWidget ??
+              WantText(
+                text: label ?? "",
+                fontSize: fontSize ?? Width * 0.011,
                 fontWeight: FontWeight.w500,
-                textColor: colorCustomButtonLabelWhite)),
+                textColor: colorCustomButtonLabelWhite,
+              ),
+        ),
       ),
     );
   }

@@ -1,5 +1,7 @@
 
-import 'package:digi_school/navigation_page/navigation_page_screen.dart';
+import 'package:digi_school/auth_screen/main_home_screen.dart';
+import 'package:digi_school/library_portal/library_navigation_page/library_navigation_screen.dart';
+import 'package:digi_school/teacher_portal/teacher_navigation_page/teacher_navigation_screen.dart';
 import 'package:digi_school/utils/app_const.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
 
         title: 'DigiiSchool', debugShowCheckedModeBanner: false,
 
-        home: NavigationScreen()
+        home: MainHomeScreen()
 
     );
   }

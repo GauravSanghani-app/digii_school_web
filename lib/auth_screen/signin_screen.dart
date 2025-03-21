@@ -1,17 +1,63 @@
-import 'package:digi_school/navigation_page/navigation_page_screen.dart';
-import 'package:digi_school/utils/custom_dropdown.dart';
+import 'package:digi_school/dashboard/navigation_page/navigation_screen.dart';
+import 'package:digi_school/library_portal/library_navigation_page/library_navigation_screen.dart';
+import 'package:digi_school/teacher_portal/teacher_navigation_page/teacher_navigation_screen.dart';
 import 'package:digi_school/utils/custom_textformfield.dart';
 import 'package:digi_school/utils/theam_manager.dart';
 import 'package:digi_school/utils/want_text.dart';
 import 'package:flutter/material.dart';
 import '../../../utils/app_const.dart';
+import '../student_portal/navigation_page/navigation_page_screen.dart';
 
+class SignInScreen extends StatefulWidget {
+  const SignInScreen({super.key});
 
-class SignInScreen extends StatelessWidget {
-  SignInScreen({super.key});
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
 
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  void _validateAndNavigate() {
+    String phoneNumber = _phoneController.text.trim().toLowerCase();
+    String password = _passwordController.text.trim();
+    if (phoneNumber.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Please enter your phoneNumber!",)),
+      );
+      return;
+    }
+
+    if (password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Please enter your password!",)),
+      );
+      return;
+    }
+
+    if (phoneNumber == "9999999999" ) {
+      //student portal
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => NavigationScreen()));
+    } else if (phoneNumber == "8888888888") {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => DashNavigationScreen()));
+    }else if (phoneNumber == "7777777777") {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => TeacherNavigationScreen()));
+    } else if (phoneNumber == "6666666666") {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LibraryNavigationScreen()));
+    }
+    if (phoneNumber.length != 10) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text('Phone number must be 10 digits'),
+        backgroundColor: colorPinkText,
+      ));
+      return;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,9 +161,8 @@ class SignInScreen extends StatelessWidget {
 
               Center(
                 child: GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>NavigationScreen()));
-                  },
+                  onTap: () => _validateAndNavigate(),
+
                   child: Container(
                     height: width*0.035,
                     width: width*0.125,

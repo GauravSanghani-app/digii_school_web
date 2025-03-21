@@ -10,6 +10,8 @@ const Color colorGreyText = Color.fromRGBO(173, 174, 188, 1);
 Color colorEvent = const Color.fromRGBO(255, 174, 76, 1);
 const Color colorGreyBorder = Color.fromRGBO(209, 213, 219, 1);
 Color colorBlack = const Color.fromRGBO(0, 0, 0, 1);
+Color colorBoxShadow = const Color.fromRGBO(0, 0, 0, 0.1);
+Color colorDivider = const Color.fromRGBO(0, 0, 0, 0.2);
 Color colorHostelName = Color.fromRGBO(184, 183, 183, 1);
 Color colorTitleBlack = const Color.fromRGBO(31, 41, 55, 1);
 Color colorLightBrown = const Color.fromRGBO(102, 0, 18, 1);
@@ -20,7 +22,10 @@ const Color colorGreyTextFieldBorder = Color.fromRGBO(229, 231, 235, 1);
 const Color colorCustomButton = Color.fromRGBO(37, 99, 235, 1);
 const Color colorSignUpText = Color.fromRGBO(79, 69, 169, 1);
 const Color colorBlueBackground = Color.fromRGBO(196, 208, 251, 1);
-
+const Color colorLightBlue = Color.fromRGBO(239, 246, 255, 1);
+const Color colorLightPurple = Color.fromRGBO(250, 245, 255, 1);
+const Color colorLightGrey = Color.fromRGBO(249, 250, 251, 1);
+const Color colorLightBlueCon = Color.fromRGBO(219, 234, 254, 1);
 
 Color colorGraycontainer = const Color.fromRGBO(211, 211, 211, 0.3);
 Color colorSubjects = const Color.fromRGBO(69, 90, 100, 1);
@@ -55,6 +60,7 @@ const Color colorGreyBackground = Color.fromRGBO(239, 239, 239, 1);
 Color colorGreyTexts = const Color.fromRGBO(35, 50, 85, 1);
 Color colorDarkBlue = const Color.fromRGBO(35, 50, 85, 0.8);
 Color colorHintText = const Color.fromRGBO(35, 50, 85, 0.3);
+Color colorBrown = const Color.fromRGBO(133, 77, 14, 1);
 
 
 
