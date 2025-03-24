@@ -1,4 +1,5 @@
 import 'package:digi_school/dashboard/navigation_page/navigation_screen.dart';
+import 'package:digi_school/exam_controller_portal/exam_navigation_page/exam_navigation_screen.dart';
 import 'package:digi_school/library_portal/library_navigation_page/library_navigation_screen.dart';
 import 'package:digi_school/teacher_portal/teacher_navigation_page/teacher_navigation_screen.dart';
 import 'package:digi_school/utils/custom_textformfield.dart';
@@ -49,6 +50,9 @@ class _SignInScreenState extends State<SignInScreen> {
     } else if (phoneNumber == "6666666666") {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => LibraryNavigationScreen()));
+    }else if (phoneNumber == "5555555555") {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => ExamNavigationScreen()));
     }
     if (phoneNumber.length != 10) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(

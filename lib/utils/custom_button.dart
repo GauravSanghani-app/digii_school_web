@@ -14,6 +14,8 @@ class CustomButton extends StatelessWidget {
         this.labelWidget,
         this.paddingVertical,
         this.fontSize,
+        this.borderColor,
+        this.backgroundColor,
 
         this.label,
       })
@@ -28,6 +30,8 @@ class CustomButton extends StatelessWidget {
   final Widget? labelWidget;
   final double? paddingVertical;
   final double? fontSize;
+  final Color? borderColor;
+  final Color? backgroundColor;
 
 
 
@@ -42,14 +46,15 @@ class CustomButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: paddingVertical ?? height * 0.011),
         decoration: BoxDecoration(
           border: Border.all(
-              color: isSelected
+            color: borderColor ??
+                (isSelected ? Colors.grey.withOpacity(0.4) : colorMainTheme),
+          ),
+          color: backgroundColor ??
+              (isSelected
                   ? Colors.grey.withOpacity(0.4)
+                  : buttonClick
+                  ? colorWhite
                   : colorMainTheme),
-          color: isSelected
-              ? Colors.grey.withOpacity(0.4)
-              : buttonClick
-              ? colorWhite
-              : colorMainTheme,
           borderRadius: BorderRadius.circular(
               isBoarderRadiusLess ? width * 0.0083 : width * 0.0083),
         ),

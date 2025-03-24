@@ -61,7 +61,8 @@ Color colorGreyTexts = const Color.fromRGBO(35, 50, 85, 1);
 Color colorDarkBlue = const Color.fromRGBO(35, 50, 85, 0.8);
 Color colorHintText = const Color.fromRGBO(35, 50, 85, 0.3);
 Color colorBrown = const Color.fromRGBO(133, 77, 14, 1);
-
+Color colorLightYellow = const Color.fromRGBO(254, 243, 199, 1);
+Color colorLightYellowCon = const Color.fromRGBO(255, 251, 235, 1);
 
 
 

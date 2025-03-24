@@ -1,11 +1,10 @@
-
-import 'package:digi_school/library_portal/library_book_screen/library_book_screen.dart';
-import 'package:digi_school/library_portal/library_dashboard_screen.dart';
-import 'package:digi_school/library_portal/library_digital_screen/library_digital_screen.dart';
-import 'package:digi_school/library_portal/library_issue_screen.dart';
-import 'package:digi_school/library_portal/library_notification_screen.dart';
-import 'package:digi_school/library_portal/library_report_screen.dart';
-import 'package:digi_school/library_portal/library_user_screen.dart';
+import 'package:digi_school/exam_controller_portal/exam_attendance_screen/exam_attendance_screen.dart';
+import 'package:digi_school/exam_controller_portal/exam_bank_screen/Exam_question_bank.dart';
+import 'package:digi_school/exam_controller_portal/exam_dashboard_screen/exam_dashboard_screen.dart';
+import 'package:digi_school/exam_controller_portal/exam_hall_screen/exam_hall_allocation.dart';
+import 'package:digi_school/exam_controller_portal/exam_management_screen/exam_management_screen.dart';
+import 'package:digi_school/exam_controller_portal/exam_result_screen/exam_result_screen.dart';
+import 'package:digi_school/exam_controller_portal/exam_setting_screen/exam_setting_screen.dart';
 import 'package:digi_school/utils/app_const.dart';
 import 'package:digi_school/utils/theam_manager.dart';
 import 'package:digi_school/utils/want_text.dart';
@@ -13,22 +12,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class LibraryNavigationScreen extends StatefulWidget {
+class ExamNavigationScreen extends StatefulWidget {
   @override
-  _LibraryNavigationScreenState createState() => _LibraryNavigationScreenState();
+  _ExamNavigationScreenState createState() => _ExamNavigationScreenState();
 }
 
-class _LibraryNavigationScreenState extends State<LibraryNavigationScreen> {
+class _ExamNavigationScreenState extends State<ExamNavigationScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    LibraryDashboardScreen(),
-    LibraryBookScreen(),
-    LibraryIssueScreen(),
-    LibraryUserScreen(),
-    LibraryReportScreen(),
-    LibraryDigitalScreen(),
-    LibraryNotificationScreen(),
+    ExamDashboardScreen(),
+    ExamManagementScreen(),
+    ExamQuestionBank(),
+    ExamResultScreen(),
+    ExamHallAllocation(),
+    ExamAttendanceScreen(),
+    ExamSettingScreen(),
 
   ];
 
@@ -142,70 +141,70 @@ class _LibraryNavigationScreenState extends State<LibraryNavigationScreen> {
                           ),
                         ),
                         NavigationRailDestination(
-                          icon: Image.asset("assets/icons/teacherNav2.png", width: width*0.015, height: width*0.015),
+                          icon: Image.asset("assets/icons/examNav1.png", width: width*0.015, height: width*0.015),
                           selectedIcon: ColorFiltered(
                             colorFilter: ColorFilter.mode(colorBlack, BlendMode.srcIn),
-                            child: Image.asset("assets/icons/teacherNav2.png", width: width*0.015, height: width*0.015),
+                            child: Image.asset("assets/icons/examNav1.png", width: width*0.015, height: width*0.015),
                           ),
                           label: Padding(
                             padding: EdgeInsets.only(bottom: height * 0.020),
-                            child: FittedBox(child: Text("        Book \nManagement")),
+                            child: FittedBox(child: Text("        Exam \nManagement")),
                           ),
                         ),
                         NavigationRailDestination(
-                          icon: Image.asset("assets/icons/teacherNav3.png", width: width*0.015, height: width*0.015),
+                          icon: Image.asset("assets/icons/examNav2.png", width: width*0.015, height: width*0.015),
                           selectedIcon: ColorFiltered(
                             colorFilter: ColorFilter.mode(colorBlack, BlendMode.srcIn),
-                            child: Image.asset("assets/icons/teacherNav3.png", width: width*0.015, height: width*0.015),
+                            child: Image.asset("assets/icons/examNav2.png", width: width*0.015, height: width*0.015),
                           ),
                           label: Padding(
                             padding: EdgeInsets.only(bottom: height * 0.020),
-                            child: FittedBox(child: Text("Issue/Return")),
+                            child: FittedBox(child: Text("Question\n  Bank ")),
                           ),
                         ),
                         NavigationRailDestination(
-                          icon: Image.asset("assets/icons/teacherNav4.png", width: width*0.015, height: width*0.015),
+                          icon: Image.asset("assets/icons/examNav3.png", width: width*0.015, height: width*0.015),
                           selectedIcon: ColorFiltered(
                             colorFilter: ColorFilter.mode(colorBlack, BlendMode.srcIn),
-                            child: Image.asset("assets/icons/teacherNav4.png", width: width*0.015, height: width*0.015),
+                            child: Image.asset("assets/icons/examNav3.png", width: width*0.015, height: width*0.015),
                           ),
                           label: Padding(
                             padding: EdgeInsets.only(bottom: height * 0.020),
-                            child: FittedBox(child: Text("User and \nborrowing \nhistory ")),
+                            child: FittedBox(child: Text("Results")),
                           ),
                         ),
                         NavigationRailDestination(
-                          icon: Image.asset("assets/icons/teacherNav5.png", width: width*0.015, height: width*0.015),
+                          icon: Image.asset("assets/icons/examNav4.png", width: width*0.015, height: width*0.015),
                           selectedIcon: ColorFiltered(
                             colorFilter: ColorFilter.mode(colorBlack, BlendMode.srcIn),
-                            child: Image.asset("assets/icons/teacherNav5.png", width: width*0.015, height: width*0.015),
+                            child: Image.asset("assets/icons/examNav4.png", width: width*0.015, height: width*0.015),
                           ),
                           label: Padding(
                             padding: EdgeInsets.only(bottom: height * 0.020),
-                            child: FittedBox(child: Text("  Reports \n&Analytics")),
+                            child: FittedBox(child: Text("      Hall \nAllocation")),
                           ),
                         ),
                         NavigationRailDestination(
-                          icon: Image.asset("assets/icons/teacherNav6.png", width: width*0.015, height: width*0.015),
+                          icon: Image.asset("assets/icons/examNav5.png", width: width*0.015, height: width*0.015),
                           selectedIcon: ColorFiltered(
                             colorFilter: ColorFilter.mode(colorBlack, BlendMode.srcIn),
-                            child: Image.asset("assets/icons/teacherNav6.png", width: width*0.015, height: width*0.015),
+                            child: Image.asset("assets/icons/examNav5.png", width: width*0.015, height: width*0.015),
                           ),
                           label: Padding(
                             padding: EdgeInsets.only(bottom: height * 0.020),
-                            child: FittedBox(child: Text(" Digital \nLibrary")),
+                            child: FittedBox(child: Text("     Exam\nAttendance")),
                           ),
                         ),
 
                         NavigationRailDestination(
-                          icon: Image.asset("assets/icons/teacherNav7.png", width: width*0.015, height: width*0.015),
+                          icon: Image.asset("assets/icons/examNav6.png", width: width*0.015, height: width*0.015),
                           selectedIcon: ColorFiltered(
                             colorFilter: ColorFilter.mode(colorBlack, BlendMode.srcIn),
-                            child: Image.asset("assets/icons/teacherNav7.png", width: width*0.015, height: width*0.015),
+                            child: Image.asset("assets/icons/examNav6.png", width: width*0.015, height: width*0.015),
                           ),
                           label: Padding(
                             padding: EdgeInsets.only(bottom: height * 0.020),
-                            child: FittedBox(child: Text("Notification")),
+                            child: FittedBox(child: Text("Settings")),
                           ),
                         ),
                       ],
