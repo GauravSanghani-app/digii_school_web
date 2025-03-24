@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
         title: 'DigiiSchool', debugShowCheckedModeBanner: false,
 
-        home: ExamNavigationScreen()
+        home: MainHomeScreen()
 
     );
   }
