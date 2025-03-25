@@ -1,3 +1,4 @@
+import 'package:digi_school/exam_controller_portal/exam_dashboard_screen/recent_notification_widget.dart';
 import 'package:digi_school/utils/app_const.dart';
 import 'package:digi_school/utils/theam_manager.dart';
 import 'package:digi_school/utils/want_text.dart';
@@ -461,92 +462,8 @@ class _ExamDashboardScreenState extends State<ExamDashboardScreen> {
             ),
           ),
           SizedBox(width: width*0.004,),
-          Container(
-            height: height,
-            width: width*0.24,
-            decoration: BoxDecoration(
-              color: colorWhite,
-              borderRadius: BorderRadius.circular(width*0.008),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(height: height * 0.023),
-                WantText(text: "Recent Notification", fontSize: width*0.0125, fontWeight: FontWeight.w700, textColor: colorBlack),
-                SizedBox(height: height * 0.023),
-                Container(
-                  width: width,
-                  padding: EdgeInsets.all(width*0.011),
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(254, 242, 242, 1),
-                    borderRadius: BorderRadius.circular(width*0.008), // Rounded corners
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset('assets/images/libraryDash8.png',width: width*0.012,),
-                      SizedBox(width: width * 0.012),
 
-                      WantText(
-                          text: '5 books are overdue today',
-                          fontSize: width * 0.0097,
-                          fontWeight: FontWeight.w400,
-                          textOverflow: TextOverflow.visible,
-                          textColor: colorRedText),
-                    ],
-                  ),
-                ),
-
-                SizedBox(height: height * 0.023),
-                Container(
-                  width: width,
-                  padding: EdgeInsets.all(width*0.011),
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(239, 246, 255, 1),
-
-                    borderRadius: BorderRadius.circular(width*0.008), // Rounded corners
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset('assets/images/quizeerror.png',width: width*0.012,),
-                      SizedBox(width: width * 0.012),
-
-                      WantText(
-                          text: 'New books added to Science section',
-                          fontSize: width * 0.0097,
-                          fontWeight: FontWeight.w400,
-                          textOverflow: TextOverflow.visible,
-                          textColor: colorCustomButton),
-                    ],
-                  ),
-                ),
-                SizedBox(height: height * 0.023),
-                Container(
-                  width: width,
-                  padding: EdgeInsets.all(width*0.011),
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(236, 253, 245, 1),
-                    borderRadius: BorderRadius.circular(width*0.008), // Rounded corners
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset('assets/images/libraryDash9.png',width: width*0.012,),
-                      SizedBox(width: width * 0.012),
-
-                      WantText(
-                          text: 'Monthly report generated',
-                          fontSize: width * 0.0097,
-                          fontWeight: FontWeight.w400,
-                          textOverflow: TextOverflow.visible,
-                          textColor: colorGreenCalendar),
-                    ],
-                  ),
-                ),
-
-
-              ],
-            ),
-          ),
+          RecentNotificationWidget(),
         ],
       ),
     );

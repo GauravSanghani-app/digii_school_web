@@ -68,12 +68,12 @@ class _LibraryBookScreenState extends State<LibraryBookScreen> {
                               onTap: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=>LibraryAddNewBook()));
                               },
-                              paddingVertical: height*0.006,
+                              paddingVertical: height*0.008,
                               labelWidget: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(Icons.add,color: colorWhite,size: width*0.012,),
-                                  SizedBox(width: width*0.008,),
+                                  SizedBox(width: width*0.003,),
                                   WantText(
                                       text: "Add New Book",
                                       fontSize: width * 0.011,

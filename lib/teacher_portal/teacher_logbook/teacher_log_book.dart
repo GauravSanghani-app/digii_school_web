@@ -59,28 +59,35 @@ class _TeacherLogBookState extends State<TeacherLogBook> {
 
 
   final int totalEntries = 24;
-  final int entriesPerPage = 2;
+  final int itemsPerPage = 3;
+
   int currentPage = 1;
 
-  int get totalPages => (totalEntries / entriesPerPage).ceil();
+  int get totalPages => totalEntries;
 
   void goToPage(int page) {
-    if (page >= 1 && page <= totalPages) {
-      setState(() {
-        currentPage = page;
-      });
-    }
+    setState(() {
+      currentPage = page;
+    });
+  }
+
+  List<int> get visiblePages {
+    int currentGroup = (currentPage - 1) ~/ 3;
+    int startPage = currentGroup * 3 + 1;
+    int endPage = (startPage + 2).clamp(1, totalPages);
+    return List.generate(endPage - startPage + 1, (index) => startPage + index);
+  }
+
+  (int, int) getCurrentRange() {
+    int currentGroup = (currentPage - 1) ~/ 3;
+    int startEntry = currentGroup * 3 + 1;
+    int endEntry = (startEntry + 2).clamp(1, totalEntries);
+    return (startEntry, endEntry);
   }
 
   @override
   Widget build(BuildContext context) {
-    int startEntry = (currentPage - 1) * entriesPerPage + 1;
-    int endEntry = currentPage * entriesPerPage;
-    if (endEntry > totalEntries) {
-      endEntry = totalEntries;
-    }
-    int startPage = (currentPage - 1) ~/ 3 * 3 + 1;
-    int endPage = (startPage + 2).clamp(1, totalPages);
+    var (startEntry, endEntry) = getCurrentRange();
 
     return Scaffold(
       backgroundColor: colorWhite,
@@ -171,14 +178,7 @@ class _TeacherLogBookState extends State<TeacherLogBook> {
                         decoration: BoxDecoration(
                           color: colorWhite,
                           borderRadius: BorderRadius.circular(width*0.008),
-                          boxShadow: [
-                            BoxShadow(
-                              color: colorBoxshadow.withOpacity(0.1),
-                              blurRadius: 2,
-                              offset: Offset(0, 2),
-                              spreadRadius: 0,
-                            ),
-                          ],
+
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -202,14 +202,7 @@ class _TeacherLogBookState extends State<TeacherLogBook> {
                         decoration: BoxDecoration(
                           color: colorWhite,
                           borderRadius: BorderRadius.circular(width*0.008),
-                          boxShadow: [
-                            BoxShadow(
-                              color: colorBoxshadow.withOpacity(0.1),
-                              blurRadius: 2,
-                              offset: Offset(0, 2),
-                              spreadRadius: 0,
-                            ),
-                          ],
+
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -232,15 +225,14 @@ class _TeacherLogBookState extends State<TeacherLogBook> {
                       child: GestureDetector(
                         onTap: () =>
                             _selectDate(context, _dateController),
-                        child: AbsorbPointer(
-                          child: CustomTextFormField(
-                              color: colorWhite,
-                              suffixIcon: Icon(Icons.calendar_today),
-                              readOnly: true,
-                              showBorder: false,
-                              hintText: 'mm/dd/yyyy',
-                              controller: _dateController),
-                        ),
+                        child: CustomTextFormField(
+                            color: colorWhite,
+                            suffixIcon: Icon(Icons.calendar_today),
+                            readOnly: true,
+                            showBorder: false,
+                            fillColor: colorWhite,
+                            hintText: 'mm/dd/yyyy',extraSpace: false,
+                            controller: _dateController),
                       ),
                     )
                   ],
@@ -416,6 +408,7 @@ class _TeacherLogBookState extends State<TeacherLogBook> {
                     );
                   },
                 ),
+
                 Container(
                   padding:  EdgeInsets.all(width*0.008),
                   decoration: BoxDecoration(
@@ -433,56 +426,89 @@ class _TeacherLogBookState extends State<TeacherLogBook> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Showing $startEntry-$endEntry of $totalEntries entries'),
+                      WantText(
+                          text:'Showing $startEntry to $endEntry of $totalEntries entries',
+                          fontSize: width * 0.0097,
+                          fontWeight: FontWeight.w400,
+                          textColor: colorDarkGreyText),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // Previous Button
-                          ElevatedButton(
-                            onPressed: currentPage > 1 ? () => goToPage(currentPage - 1) : null,
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.grey[200],
-                              foregroundColor: Colors.black,
-                            ),
-                            child: const Text('Previous'),
-                          ),
-                          const SizedBox(width: 8),
+                          GestureDetector(
+                            onTap:currentPage > 1 ? () => goToPage(currentPage - 1) : null,
+                            child: Container(
+                              padding:  EdgeInsets.symmetric(horizontal:width*0.008,vertical: width*0.003),
+                              decoration: BoxDecoration(
+                                color: colorBox,
+                                borderRadius: BorderRadius.circular(width*0.004),
+                                border: Border.all(color: colorGrey),
 
-                          // Page Numbers (Only 3 at a time)
-                          ...List.generate(
-                            (endPage - startPage + 1),
-                                (index) {
-                              int pageNumber = startPage + index;
-                              return Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                                child: ElevatedButton(
-                                  onPressed: () => goToPage(pageNumber),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: currentPage == pageNumber
-                                        ? Colors.blue
-                                        : Colors.grey[200],
-                                    foregroundColor: currentPage == pageNumber
-                                        ? Colors.white
-                                        : Colors.black,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: colorBoxshadow.withOpacity(0.1),
+                                    blurRadius: 2,
+                                    offset: Offset(0, 2),
+                                    spreadRadius: 0,
                                   ),
-                                  child: Text('$pageNumber'),
-                                ),
-                              );
-                            },
-                          ),
-
-                          const SizedBox(width: 8),
-
-                          // Next Button
-                          ElevatedButton(
-                            onPressed: currentPage < totalPages
-                                ? () => goToPage(currentPage + 1)
-                                : null,
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.grey[200],
-                              foregroundColor: Colors.black,
+                                ],
+                              ),
+                              child:  WantText(
+                                  text:'Previous',
+                                  fontSize: width * 0.0097,
+                                  fontWeight: FontWeight.w400,
+                                  textColor: colorGreyTextLogIn),
                             ),
-                            child: const Text('Next'),
                           ),
+                          const SizedBox(width: 8),
+                          ...visiblePages.map((page) => GestureDetector(
+                            onTap:  () => goToPage(page),
+                            child: Container(
+                              margin: EdgeInsets.symmetric(horizontal: width*0.004),
+                              padding:  EdgeInsets.symmetric(horizontal:width*0.008,vertical: width*0.003),
+                              decoration: BoxDecoration(
+                                color:  currentPage == page ? Colors.blue : colorBox,
+                                borderRadius: BorderRadius.circular(width*0.004),
+                                border: Border.all(color: colorGrey),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: colorBoxshadow.withOpacity(0.1),
+                                    blurRadius: 2,
+                                    offset: Offset(0, 2),
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                              ),
+                              child: Text('$page',style: TextStyle(
+                                color: currentPage == page ? Colors.white : Colors.black,
+                              ),),
+                            ),
+                          )),
+                          const SizedBox(width: 8),
+                          GestureDetector(
+                            onTap: currentPage < totalPages ? () => goToPage(currentPage + 1) : null,
+                            child: Container(
+                              padding:  EdgeInsets.symmetric(horizontal:width*0.008,vertical: width*0.003),
+                              decoration: BoxDecoration(
+                                color: colorBox,
+                                border: Border.all(color: colorGrey),
+
+                                borderRadius: BorderRadius.circular(width*0.004),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: colorBoxshadow.withOpacity(0.1),
+                                    blurRadius: 2,
+                                    offset: Offset(0, 2),
+                                    spreadRadius: 0,
+                                  ),
+                                ],
+                              ),
+                              child: WantText(
+                                  text:'Next',
+                                  fontSize: width * 0.0097,
+                                  fontWeight: FontWeight.w400,
+                                  textColor: colorGreyTextLogIn),
+                            ),
+                          )
                         ],
                       ),
                     ],

@@ -16,6 +16,7 @@ class CustomButton extends StatelessWidget {
         this.fontSize,
         this.borderColor,
         this.backgroundColor,
+        this.textColor,
 
         this.label,
       })
@@ -32,6 +33,8 @@ class CustomButton extends StatelessWidget {
   final double? fontSize;
   final Color? borderColor;
   final Color? backgroundColor;
+  final Color? textColor;
+
 
 
 
@@ -64,7 +67,7 @@ class CustomButton extends StatelessWidget {
                 text: label ?? "",
                 fontSize: fontSize ?? Width * 0.011,
                 fontWeight: FontWeight.w500,
-                textColor: colorCustomButtonLabelWhite,
+                textColor: textColor ?? colorCustomButtonLabelWhite,
               ),
         ),
       ),
