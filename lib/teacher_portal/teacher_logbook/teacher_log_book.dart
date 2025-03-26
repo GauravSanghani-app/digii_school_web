@@ -147,7 +147,7 @@ class _TeacherLogBookState extends State<TeacherLogBook> {
                         CustomButton(
                           Width: width*0.091,
                           onTap: (){},
-                          paddingVertical: height*0.006,
+                          paddingVertical: height*0.008,
                           labelWidget: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

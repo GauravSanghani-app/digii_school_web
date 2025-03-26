@@ -117,7 +117,7 @@ class _LibraryAddEbookState extends State<LibraryAddEbook> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.02,),
+                              Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.018,),
                             ],
                           ),
                         ),

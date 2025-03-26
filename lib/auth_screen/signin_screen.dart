@@ -1,3 +1,4 @@
+import 'package:digi_school/accounts_portal/accounts_navigation_page/accounts_navigation_page.dart';
 import 'package:digi_school/dashboard/navigation_page/navigation_screen.dart';
 import 'package:digi_school/exam_controller_portal/exam_navigation_page/exam_navigation_screen.dart';
 import 'package:digi_school/library_portal/library_navigation_page/library_navigation_screen.dart';
@@ -53,6 +54,9 @@ class _SignInScreenState extends State<SignInScreen> {
     }else if (phoneNumber == "5555555555") {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => ExamNavigationScreen()));
+    }else if (phoneNumber == "4444444444") {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => AccountsNavigationPage()));
     }
     if (phoneNumber.length != 10) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(

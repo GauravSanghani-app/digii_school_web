@@ -75,7 +75,7 @@ class CustomTextFormField extends StatelessWidget {
             // Dynamically set based on parent state
             style: GoogleFonts.roboto(
               color: colorBlack,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w400,
             ),
             onChanged: onChanged,
             decoration: InputDecoration(

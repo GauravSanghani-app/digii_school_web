@@ -69,20 +69,18 @@ class _LibraryAddNewBookState extends State<LibraryAddNewBook> {
                           textColor: colorBlack),
                       Row(
                         children: [
-                          Container(
-                            width: width*0.085,
-                            padding: EdgeInsets.symmetric(vertical:height * 0.006),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  color:colorWhite),
-                              color:colorWhite,
-                              borderRadius: BorderRadius.circular(width * 0.0083),
-                            ),
-                            child: Row(
+
+                          CustomButton(
+                            Width: width*0.085,
+                            onTap: (){},
+                            paddingVertical: height*0.008,
+                            backgroundColor: colorWhite,
+                            borderColor: colorWhite,
+                            labelWidget: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.close,color: colorBlack,size: width*0.012,),
-                                SizedBox(width: width*0.006,),
+                                SizedBox(width: width*0.004,),
                                 WantText(
                                     text: "Cancel",
                                     fontSize: width * 0.011,
@@ -90,19 +88,18 @@ class _LibraryAddNewBookState extends State<LibraryAddNewBook> {
                                     textColor: colorBlack),
                               ],
                             ),
-            
                           ),
                           SizedBox(width: width*0.010,),
             
                           CustomButton(
                             Width: width*0.095,
                             onTap: (){},
-                            paddingVertical: height*0.006,
+                            paddingVertical: height*0.008,
                             labelWidget: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.check,color: colorWhite,size: width*0.012,),
-                                SizedBox(width: width*0.008,),
+                                SizedBox(width: width*0.004,),
                                 WantText(
                                     text: "Save Book",
                                     fontSize: width * 0.011,
@@ -228,7 +225,7 @@ class _LibraryAddNewBookState extends State<LibraryAddNewBook> {
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                               ),
-                                              Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.02,),
+                                              Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.018,),
                                             ],
                                           ),
                                         ),
@@ -426,7 +423,7 @@ class _LibraryAddNewBookState extends State<LibraryAddNewBook> {
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
-                                          Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.02,),
+                                          Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.018,),
                                         ],
                                       ),
                                     ),

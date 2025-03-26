@@ -17,19 +17,16 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
 
   String selectedClass = "";
   bool isDropdownOpen = false;
-  final List<String> classes = ["Wearer", "Monitor"];
+  final List<String> classes = ["All Classes", "Monitor"];
 
-  String selectedSub = "";
+  String selectedSec = "";
   bool isDropdownOpen2 = false;
-  final List<String> subject = ["Hindi", "English"];
+  final List<String> sections = ["All Sections", "English"];
 
   String selectedYear = "";
   bool isDropdownOpen3 = false;
-  final List<String> year = ["2024-2025", "2025-2026"];
+  final List<String> year = ["All Year", "2025-2026"];
 
-  bool showResultsImmediately = false;
-  bool allowMultipleAttempts = false;
-  bool enableNegativeMarking = false;
 
   final int totalEntries = 15;
   final int itemsPerPage = 3;
@@ -90,8 +87,8 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
                       Container(
                         padding:  EdgeInsets.symmetric(horizontal:width*0.008,vertical: width*0.004),
                         decoration: BoxDecoration(
-                          color: colorBlueBackground,
-                          border: Border.all(color: colorGrey),
+                          color: colorLightBlueCon,
+                          border: Border.all(color: colorLightBlueCon),
 
                           borderRadius: BorderRadius.circular(width*0.01),
 
@@ -164,7 +161,7 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               WantText(
-                                  text: "Class/Grade",
+                                  text: "Class",
                                   fontSize: width * 0.011,
                                   fontWeight: FontWeight.w500,
                                   textColor: colorTextFieldTitleBlack),
@@ -191,14 +188,14 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        selectedClass.isEmpty ? "Select Class" : selectedClass,
+                                        selectedClass.isEmpty ? classes[0] : selectedClass,
                                         style: TextStyle(
-                                          color: selectedClass.isEmpty ? colorHintText : colorBlack,
+                                          color: colorBlack,
                                           fontSize: width * 0.0097,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
-                                      Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.02,),
+                                      Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.018,),
                                     ],
                                   ),
                                 ),
@@ -279,7 +276,7 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               WantText(
-                                  text: "Subject",
+                                  text: "Section",
                                   fontSize: width * 0.011,
                                   fontWeight: FontWeight.w500,
                                   textColor: colorTextFieldTitleBlack),
@@ -306,14 +303,14 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        selectedSub.isEmpty ? "Select Subject" : selectedSub,
+                                        selectedSec.isEmpty ? sections[0] : selectedSec,
                                         style: TextStyle(
-                                          color: selectedSub.isEmpty ? colorHintText : colorBlack,
+                                          color: colorBlack,
                                           fontSize: width * 0.0097,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
-                                      Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.02,),
+                                      Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.018,),
                                     ],
                                   ),
                                 ),
@@ -338,11 +335,11 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
                                       ]
                                   ),
                                   child: Column(
-                                    children: subject.map((option) {
+                                    children: sections.map((option) {
                                       return GestureDetector(
                                         onTap: () {
                                           setState(() {
-                                            selectedSub = option;
+                                            selectedSec = option;
                                             isDropdownOpen2 = false;
                                           });
                                         },
@@ -351,7 +348,7 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
                                           decoration: BoxDecoration(
                                             border: Border(
                                               bottom: BorderSide(
-                                                color: subject.last == option
+                                                color: sections.last == option
                                                     ? Colors.transparent
                                                     : Colors.grey.shade400,
                                               ),
@@ -394,7 +391,7 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               WantText(
-                                  text: "Academic Year",
+                                  text: "Exam Type",
                                   fontSize: width * 0.011,
                                   fontWeight: FontWeight.w500,
                                   textColor: colorTextFieldTitleBlack),
@@ -421,14 +418,14 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        selectedYear.isEmpty ? "Select Year" : selectedYear,
+                                        selectedYear.isEmpty ? year[0] : selectedYear,
                                         style: TextStyle(
-                                          color: selectedYear.isEmpty ? colorHintText : colorBlack,
+                                          color: colorBlack,
                                           fontSize: width * 0.0097,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
-                                      Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.02,),
+                                      Icon(Icons.arrow_drop_down, color: colorBlack,size: width*0.018,),
                                     ],
                                   ),
                                 ),
@@ -505,7 +502,7 @@ class _ExamScheduleScreenState extends State<ExamScheduleScreen> {
                                 ),
                               ],
                             ),
-                            child: CustomTextFormField(hintText: "e.g. Midterm Examination 2025", controller: _dateController,labelText: "Exam Title")),
+                            child: CustomTextFormField(hintText: "mm/dd/yyyy", controller: _dateController,labelText: "Date Range")),
                       ),
                     ],
                   ),

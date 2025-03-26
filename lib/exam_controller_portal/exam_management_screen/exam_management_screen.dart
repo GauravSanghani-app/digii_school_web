@@ -1,6 +1,7 @@
 import 'package:digi_school/exam_controller_portal/exam_dashboard_screen/recent_notification_widget.dart';
 import 'package:digi_school/exam_controller_portal/exam_management_screen/create_new_exam.dart';
 import 'package:digi_school/exam_controller_portal/exam_management_screen/exam_schedule_screen.dart';
+import 'package:digi_school/exam_controller_portal/exam_management_screen/upload_question_bank.dart';
 import 'package:digi_school/utils/app_const.dart';
 import 'package:digi_school/utils/custom_button.dart';
 import 'package:digi_school/utils/theam_manager.dart';
@@ -46,7 +47,7 @@ class _ExamManagementScreenState extends State<ExamManagementScreen> {
                     // SizedBox(height: height*0.007,),
                     WantText(
                         text: "Create and manage school examinations efficiently",
-                        fontSize: width * 0.011,
+                        fontSize: width * 0.0097,
                         fontWeight: FontWeight.w400,
                         textColor: colorDarkGreyText),
                     SizedBox(height: height*0.023,),
@@ -255,7 +256,7 @@ class _ExamManagementScreenState extends State<ExamManagementScreen> {
                           CustomButton(
                             Width: width*0.125,
                             onTap: (){
-                              // Navigator.push(context, MaterialPageRoute(builder: (context)=>LibraryAddNewBook()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>UploadQuestionBank()));
                             },
                             paddingVertical: height*0.008,
                             backgroundColor: colorBoxshadow,

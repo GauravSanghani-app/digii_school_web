@@ -40,7 +40,7 @@ class _ExamDashboardScreenState extends State<ExamDashboardScreen> {
                     // SizedBox(height: height*0.007,),
                     WantText(
                         text: "Welcome back, Sarah!",
-                        fontSize: width * 0.011,
+                        fontSize: width * 0.0097,
                         fontWeight: FontWeight.w400,
                         textColor: colorDarkGreyText),
                     SizedBox(height: height*0.023,),
